@@ -1,5 +1,5 @@
 +++
-date       = '{{ .Date }}'
-title      = '{{ replace .File.ContentBaseName "-" " " | title }}'
+date       = '{{ .Date | time.Format ":date_medium" }}'
+title      = 'TODO'
 categories = ['GSoC']
 +++
