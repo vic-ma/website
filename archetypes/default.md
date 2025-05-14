@@ -1,5 +1,5 @@
 +++
-date       = '{{ .Date | time.Format ":date_medium" }}'
 title      = 'TODO'
+date       = '{{ .Date | time.Format ":date_medium" }}'
 categories = ['GSoC']
 +++
