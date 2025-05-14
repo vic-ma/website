@@ -2,3 +2,7 @@ baseURL = 'https://victorma.ca/'
 languageCode = 'en-ca'
 title = 'Victor Ma'
 theme = 'smol'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
