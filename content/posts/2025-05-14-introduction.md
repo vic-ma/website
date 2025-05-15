@@ -30,4 +30,6 @@ To learn more about the crossword construction process, check out [How to Make a
 
 Crossword editing software can make the process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter (a constraint on the list of possible words).
 
-The goal
+The goal of my GSoC project is to add construction aids to the Crosswords editor. These aids will help the user to create better crossword puzzles.
+
+## Construction aids
