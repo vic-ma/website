@@ -15,4 +15,13 @@ The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists
 
 My project focuses on the Crosswords editor.
 
-If you would like to learn more about GNOME Crosswords, take a look at the [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave.
+If you would like to learn more about GNOME Crosswords, check the [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave last year.
+
+## Crossword construction
+
+Creating a crossword is tricky. Creating a *good* crossword is even trickier. There are many things to take into account. For example:
+* Are the words interesting?
+* Are there any words that are so uncommon as to feel unfair?
+* Does the puzzle have a good variety of parts of speech?
+* Is the grid symmetrical?
+* Are there any unchecked squares?
