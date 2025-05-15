@@ -23,5 +23,5 @@ Creating a crossword is tricky. Creating a *good* crossword is even trickier. Th
 * Are the words interesting?
 * Are there any words that are so uncommon as to feel unfair?
 * Does the puzzle have a good variety of parts of speech?
-* Is the grid symmetrical?
+* Is the grid rotationally symmetric?
 * Are there any unchecked squares?
