@@ -1,7 +1,8 @@
 +++
-title      = 'Introducing my GSoC 2025 project...an overlay for GNOME Crosswords!'
-date       = '2025-05-14'
+title      = 'Introducing my GSoC 2025 project'
+date       = '2025-05-15'
 categories = ['GSoC']
 +++
 
 mini I made
+it's test "blah"
