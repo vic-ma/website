@@ -2,7 +2,6 @@
 title      = 'Introducing my GSoC 2025 project'
 date       = '2025-05-16'
 categories = ['GSoC']
-draft      = true
 +++
 
 I will be contributing to GNOME Crosswords, as part of the Google Summer of Code 2025 program. My project adds construction aids to the Crosswords editor. These aids provide hints, warnings, and statistics that help the user create better crossword puzzles.
@@ -33,3 +32,9 @@ Crossword editing software can make the process easier---certainly not easy---bu
 The goal of my GSoC project is to add construction aids to the Crosswords editor. These aids will help the user to create better crossword puzzles.
 
 ## Construction aids
+
+
+
+
+
+## MINI
