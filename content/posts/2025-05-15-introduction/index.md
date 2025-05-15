@@ -1,7 +1,7 @@
 +++
 title      = 'Introducing my GSoC 2025 project'
 slug       = 'gsoc-introduction'
-date       = '2025-05-16'
+date       = '2025-05-15'
 categories = ['GSoC']
 +++
 
@@ -39,7 +39,7 @@ Here are some potential construction aids that this project could add:
 * Warning for non-dictionary-words.
 * Warning for words with low familiarity.
 * Indicator for average familiarity of words.
-* Warning for crosswordese (uncommon words commonly found in crosswords).
+* Warning for crosswordese (overused crossword words).
 * Heat map for hard-to-fill cells.
 * Parts-of-speech distribution graph.
 
@@ -48,3 +48,5 @@ Right now, we are in the "community bonding period" of the GSoC program (May 8 t
 ## Mini crossword
 
 Here is a GNOME-themed [mini crossword](https://drive.google.com/file/d/1IjSUo3j_GK_Lw-x5mhFfX3qRLDZN2TOf) that I made. You can try it out with the Crosswords player.
+
+![Screenshot of my mini crossword](mini.png)
