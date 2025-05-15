@@ -15,3 +15,4 @@ The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists
 
 My project focuses on the Crosswords editor.
 
+If you would like to learn more about GNOME Crosswords, take a look at the [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave.
