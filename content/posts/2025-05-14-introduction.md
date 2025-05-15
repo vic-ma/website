@@ -43,6 +43,7 @@ Here are some potential construction aids that this project could add:
 * Heat map for hard-to-fill cells.
 * Parts-of-speech distribution graph.
 
+Right now, we are in the "community bonding period" of the GSoC program . We will determine which construction aids to add 
 
 ## MINI
 <!-- TODO MINI -->
