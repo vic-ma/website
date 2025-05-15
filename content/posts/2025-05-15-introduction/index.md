@@ -17,9 +17,11 @@ If you would like to learn more about GNOME Crosswords, check out this [GUADEC p
 
 ## Crossword construction
 
-Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding words to fill all the rows and columns. Initially, it's quite easy, because the grid starts off completely empty; so you are not at all restricted in what words you pick. But as you add more and more words to the grid, it becomes harder and harder to fill in the remaining empty spots. That's because a remaining row, for example, will have a few of its cells already filled by the intersection columns. 
+Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding words to fill all the rows and columns.
 
-Now, all that is just to make a ... but for a good one...
+Initially, it's quite easy, because the grid starts off completely empty; so you are not at all restricted in what words you pick. But as you add more and more words to the grid, it becomes harder and harder to fill in the remaining empty spots. That's because a remaining row, for example, will have a few of its cells already filled, due to the intersecting columns. It's possible that, halfway through the construction process, you realize that one or more row/columns cannot be filled at all! In that case, you would need to backtrack and delete some of the intersecting words and try again.
+
+And all that only gets you a valid crossword puzzle. In order to make a *good* crossword puzzle, there are many more things to consider. For example:
 
 * Are the words interesting?
 * Are there any words that are so uncommon as to feel unfair?
@@ -27,7 +29,7 @@ Now, all that is just to make a ... but for a good one...
 * Is the grid rotationally symmetric?
 * Are there any unchecked cells?
 
-To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from *Wired*.
+Suffice it to say, creating a good crossword puzzle is not easy. To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from *Wired*.
 
 Crossword editing software can make the process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter (a constraint on the list of possible words).
 
