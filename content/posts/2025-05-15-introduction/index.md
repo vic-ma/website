@@ -5,17 +5,15 @@ date       = '2025-05-15'
 categories = ['GSoC']
 +++
 
-I will be contributing to GNOME Crosswords, as part of the Google Summer of Code 2025 program. My project adds construction aids to the Crosswords editor. These aids provide hints, warnings, and statistics that help the user create better crossword puzzles.
+I will be contributing to GNOME Crosswords, as part of the Google Summer of Code 2025 program. My project adds construction aids to the Crosswords editor. These aids provide hints, warnings, and data that help the user create better crossword puzzles.
 
 ## GNOME Crosswords
 
-The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists of two parts:
+The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists of two applications:
 * The [Crosswords player](https://flathub.org/apps/org.gnome.Crosswords), which you can use to play crossword puzzles.
-* The [Crosswords editor](https://flathub.org/apps/org.gnome.Crosswords.Editor), which you can use to create crossword puzzles.
+* The [Crosswords editor](https://flathub.org/apps/org.gnome.Crosswords.Editor), which you can use to create crossword puzzles. This is the focus of my project.
 
-My project focuses on the Crosswords editor.
-
-If you would like to learn more about GNOME Crosswords, check out the [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave last year.
+If you would like to learn more about GNOME Crosswords, check out this [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave last year.
 
 ## Crossword construction
 
@@ -43,7 +41,7 @@ Here are some potential construction aids that this project could add:
 * Heat map for hard-to-fill cells.
 * Parts-of-speech distribution graph.
 
-Right now, we are in the "community bonding period" of the GSoC program (May 8 to June 1). During this time, I will work with my mentors to determine which construction aids this project should add.
+Right now, we are in the community bonding period of the GSoC program (May 8 to June 1). During this time, I will work with my mentors to determine which construction aids this project should add.
 
 ## Mini crossword
 
