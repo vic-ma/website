@@ -19,16 +19,15 @@ If you would like to learn more about GNOME Crosswords, check out the [GUADEC pr
 
 ## Crossword construction
 
-Creating a crossword is tricky. Creating a *good* crossword is even trickier. There are many things to take into account. For example:
+Creating a crossword is tricky. Creating a _good_ crossword is even trickier. There are many things to take into account. For example:
 * Are the words interesting?
 * Are there any words that are so uncommon as to feel unfair?
 * Does the puzzle have a good variety of parts of speech?
 * Is the grid rotationally symmetric?
 * Are there any unchecked squares?
 
-Crossword editing software can make this process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter (a constraint on the list of possible words).
+To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from _The New York Times_, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from _Wired_.
 
+Crossword editing software can make the process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter (a constraint on the list of possible words).
 
-
-
-To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from *Wired*.
+The goal
