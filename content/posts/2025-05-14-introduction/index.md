@@ -43,7 +43,8 @@ Here are some potential construction aids that this project could add:
 * Heat map for hard-to-fill cells.
 * Parts-of-speech distribution graph.
 
-Right now, we are in the "community bonding period" of the GSoC program . We will determine which construction aids to add 
+Right now, we are in the "community bonding period" of the GSoC program (May 8 to June 1). During this time, I will work with my mentors to determine which construction aids this project should add.
 
-## MINI
-<!-- TODO MINI -->
+## Mini crossword
+
+Here is a GNOME-themed [mini crossword](https://drive.google.com/file/d/1IjSUo3j_GK_Lw-x5mhFfX3qRLDZN2TOf) that I made. You can try it out with the Crosswords player.
