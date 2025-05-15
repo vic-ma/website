@@ -11,13 +11,15 @@ I will be contributing to GNOME Crosswords, as part of the Google Summer of Code
 
 The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists of two applications:
 * The [Crosswords player](https://flathub.org/apps/org.gnome.Crosswords), which you can use to play crossword puzzles.
-* The [Crosswords editor](https://flathub.org/apps/org.gnome.Crosswords.Editor), which you can use to create crossword puzzles. This is the focus of my project.
+* The [Crosswords editor](https://flathub.org/apps/org.gnome.Crosswords.Editor), which you can use to create crossword puzzles.
 
 If you would like to learn more about GNOME Crosswords, check out this [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave last year.
 
 ## Crossword construction
 
-Creating a crossword is tricky. Creating a *good* crossword is even trickier. There are many things to take into account. For example:
+Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding 
+
+As if that wasn't enough, there are many other things to take into account. For example:
 * Are the words interesting?
 * Are there any words that are so uncommon as to feel unfair?
 * Does the puzzle have a good variety of parts of speech?
