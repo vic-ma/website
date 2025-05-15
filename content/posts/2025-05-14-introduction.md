@@ -26,7 +26,9 @@ Creating a crossword is tricky. Creating a *good* crossword is even trickier. Th
 * Is the grid rotationally symmetric?
 * Are there any unchecked squares?
 
-Crossword editing software can make this process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for a given row or column
+Crossword editing software can make this process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter (a constraint on the list of possible words).
 
 
-To learn more about the process of creating a crossword, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from *Wired*.
+
+
+To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from *Wired*.
