@@ -56,4 +56,4 @@ Right now, we are in the community bonding period of the GSoC program (May 8 to 
 
 Here's a [mini crossword](https://drive.google.com/file/d/1IjSUo3j_GK_Lw-x5mhFfX3qRLDZN2TOf) that I made! You can try it out by using the [Crosswords player](https://flathub.org/apps/org.gnome.Crosswords).
 
-![My mini crossword](mini.png)
+![My mini crossword](https://victorma.ca/posts/gsoc-introduction/mini.png)
