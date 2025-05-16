@@ -58,6 +58,6 @@ Here's a [mini crossword](https://drive.google.com/file/d/1IjSUo3j_GK_Lw-x5mhFfX
 
 ![Screenshot of my mini crossword](mini.png)
 
-{{ with .Resources.GetMatch "mini.png" }}
+{{ with .Resources.Get "mini.png" }}
   <img src="{{ .RelPermalink }}" alt="Screenshot of my mini crossword" />
 {{ end }}
