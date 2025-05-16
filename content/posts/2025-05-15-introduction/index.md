@@ -41,7 +41,7 @@ The goal of my GSoC project is to add additional construction aids to the Crossw
 
 ## Construction aids
 
-Here are some potential construction aids that this project can add:
+Here's a list of potential construction aids that this project can add:
 * Warning for unches (unchecked cells).
 * Warning for non-dictionary-words.
 * Warning for words with low familiarity.
@@ -50,7 +50,7 @@ Here are some potential construction aids that this project can add:
 * Heat map for hard-to-fill cells.
 * Parts-of-speech distribution graph.
 
-Right now, we are in the community bonding period of the GSoC program (May 8 to June 1). During this period, I will work with my mentors to determine which construction aids this project should add. By the end of the month, I will have created one or two design docs. These design docs will specify how exactly my GSoC project should look like. That way, once the coding period starts, I'll know exactly what to do.
+Right now, we are in the community bonding period of the GSoC program (May 8 to June 1). During this period, I will work with my mentors to determine which construction aid or aids this project should add, what they should look like, and how they should be implemented. By the end of the month, I will have created some design docs laying all this out. This will make it much easier to hit the ground running, once the coding period begins in June.
 
 ## Mini crossword
 
