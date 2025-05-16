@@ -50,7 +50,7 @@ Here's a list of potential construction aids that this project can add:
 * Heat map for hard-to-fill cells.
 * Parts-of-speech distribution graph.
 
-Right now, we are in the community bonding period of the GSoC program (May 8 to June 1). During this period, I will work with my mentors to determine which construction aid or aids this project should add, what they should look like, and how they should be implemented. By the end of the month, I will have created some design docs laying all this out. This will make it much easier to hit the ground running, once the coding period begins in June.
+Right now, we are in the community bonding period of the GSoC program (May 8 to June 1). During this period, I will work with my mentors to determine which construction aid or aids this project should add, what they should look like, and how they should be implemented. By the end of the month, I will have created some design docs laying all this out. That will make it much easier to hit the ground running, once the coding period starts, in June.
 
 ## Mini crossword
 
