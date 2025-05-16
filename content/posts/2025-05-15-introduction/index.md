@@ -35,7 +35,7 @@ And that's just what you have to deal with to create a valid crossword puzzle. T
 
 To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html) by *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk) by *Wired*.
 
-Suffice it to say, creating a good crossword puzzle is difficult. Thankfully, crossword construction software can make this process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter.
+Suffice it to say, creating a good crossword puzzle is difficult. Thankfully, crossword construction software can make this process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter. We can consider this a "construction aid."
 
 The goal of my GSoC project is to add additional construction aids to the Crosswords editor. These aids will help the user create better crossword puzzles.
 
