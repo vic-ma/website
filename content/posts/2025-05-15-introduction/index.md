@@ -17,7 +17,7 @@ If you would like to learn more about GNOME Crosswords, check out this [GUADEC p
 
 ## Crossword construction
 
-Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding words to fill all the rows and columns.
+Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding words to fill grid.
 
 Initially, it's quite easy, because the grid starts off completely empty; so you are not at all restricted in what words you pick. But as you add more and more words to the grid, it becomes harder and harder to fill in the remaining empty spots. That's because a remaining row, for example, will have a few of its cells already filled, due to the intersecting columns. It's possible that, halfway through the construction process, you realize that one or more row/column cannot be filled at all! In that case, you would need to backtrack and delete some of the intersecting words and try again.
 
@@ -29,11 +29,11 @@ And all that only gets you a valid crossword puzzle. To make a *good* crossword 
 * Is the grid rotationally symmetric?
 * Are there any unchecked cells?
 
-To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html), from *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk), from *Wired*.
+To learn more about the crossword construction process, check out [How to Make a Crossword Puzzle](https://www.nytimes.com/2018/09/14/crosswords/how-to-make-a-crossword-puzzle-the-series.html) by *The New York Times*, as well as [How to Create a Crossword Puzzle](https://www.youtube.com/watch?v=aAqQnXHd7qk) by *Wired*.
 
-Suffice it to say, creating a good crossword puzzle is a daunting task. However,crossword construction software can make the process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter.
+Suffice it to say, creating a good crossword puzzle is difficult. Luckily, crossword construction software can make this process easier---certainly not easy---but easier. For example, the GNOME Crosswords editor gives you a list of possible words for each row/column, taking into account any cells in the row/column that are already filled with a letter.
 
-The goal of my GSoC project is to add additional construction aids to the Crosswords editor. These aids will help the user to create better crossword puzzles.
+The goal of my GSoC project is to add additional construction aids to the Crosswords editor. These aids will help the user create better crossword puzzles.
 
 ## Construction aids
 
