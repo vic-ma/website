@@ -17,9 +17,11 @@ If you would like to learn more about GNOME Crosswords, check out this [GUADEC p
 
 ## Crossword construction
 
-Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding words to fill grid.
+Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding the right words to fill the grid.
 
-Initially, it's quite easy, because the grid starts off completely empty; so you are not at all restricted in what words you pick. But as you add more and more words to the grid, it becomes harder and harder to fill in the remaining empty spots. That's because a remaining row, for example, will have a few of its cells already filled, due to the intersecting columns. It's possible that, halfway through the construction process, you realize that one or more row/column cannot be filled at all! In that case, you would need to backtrack and delete some of the intersecting words and try again.
+Initially, it's quite easy. The grid starts off completely empty, so the first few words you add don't have any restrictions on them (apart from word length). But as you fill the grid with more and more words, it becomes increasingly harder to fill in the remaining empty spots. That's because a remaining row, for example, will have a few of its cells already filled by the words in the intersecting columns.
+
+It's possible that, halfway through the construction process, you realize that one or more row/column cannot be filled at all! In that case, you would need to backtrack and delete some of the intersecting words and try again.
 
 And all that only gets you a valid crossword puzzle. To make a *good* crossword puzzle, there are many more things to consider. For example:
 
