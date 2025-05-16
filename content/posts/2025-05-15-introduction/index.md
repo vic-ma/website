@@ -7,6 +7,11 @@ categories = ['GSoC']
 
 I will be contributing to GNOME Crosswords, as part of the Google Summer of Code 2025 program. My project adds construction aids to the Crosswords editor. These aids provide hints, warnings, and data that help the user create better crossword puzzles.
 
+I have three mentors:
+* Jonathan Blandford
+* Federico Mena Quintero
+* Tanmay Patil
+
 ## GNOME Crosswords
 
 The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists of two applications:
