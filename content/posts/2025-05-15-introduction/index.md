@@ -10,8 +10,10 @@ I will be contributing to GNOME Crosswords, as part of the Google Summer of Code
 ## GNOME Crosswords
 
 The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists of two applications:
-* The [Crosswords player](https://flathub.org/apps/org.gnome.Crosswords), which you can use to play crossword puzzles.
-* The [Crosswords editor](https://flathub.org/apps/org.gnome.Crosswords.Editor), which you can use to create crossword puzzles.
+* The [Crosswords player](https://flathub.org/apps/org.gnome.Crosswords), which lets you play crossword puzzles.
+* The [Crosswords editor](https://flathub.org/apps/org.gnome.Crosswords.Editor), which lets you create crossword puzzles.
+
+My project focuses on the Crosswords *editor*.
 
 If you would like to learn more about GNOME Crosswords, check out this [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave last year.
 
