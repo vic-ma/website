@@ -19,11 +19,11 @@ If you would like to learn more about GNOME Crosswords, check out this [GUADEC p
 
 Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding the right words to fill the grid.
 
-Initially, it's quite easy. The grid starts off completely empty, so the first few words you add don't have any restrictions on them (apart from word length). But as you fill the grid with more and more words, it becomes increasingly harder to fill in the remaining empty spots. That's because a remaining row, for example, will have a few of its cells already filled by the words in the intersecting columns.
+Initially, it's quite easy. The grid starts off completely empty, so the first few words you add don't have any restrictions on them (apart from word length). But as you fill the grid with more and more words, it becomes increasingly harder to find words for the remaining rows/columns. That's because a remaining row, for example, will have a few of its cells already filled by the words in the intersecting columns.
 
-It's possible that, halfway through the construction process, you realize that one or more row/column cannot be filled at all! In that case, you would need to backtrack and delete some of the intersecting words and try again.
+It's possible that, halfway through the construction process, you realize that one or more row/column cannot be filled at all, because no word meets the constraints imposed on it by the prefilled cells! In that case, you would need to backtrack and delete some of the intersecting words and try again. Of course, this could also lead to other rows/columns on the grid no longer being valid---and you can get a domino effect of rows/columns on the grid needing to be redone!
 
-And all that only gets you a valid crossword puzzle. To make a *good* crossword puzzle, there are many more things to consider. For example:
+And that's just what you have to deal with to create a valid crossword puzzle. To create a *good* crossword puzzle, there are many more things to consider, some of which impose further restrictions on the words that you can use. For example:
 
 * Are the words interesting?
 * Are there any words that are so uncommon as to feel unfair?
