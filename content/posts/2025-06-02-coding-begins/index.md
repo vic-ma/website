@@ -1,6 +1,6 @@
 +++
 title      = 'Coding begins!'
-date       = 'Jun 2, 2025'
+date       = '2025-06-02'
 slug       = 'TODO'
 categories = ['GSoC']
 +++
