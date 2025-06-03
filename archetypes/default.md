@@ -5,5 +5,3 @@ slug       = 'TODO'
 categories = ['GSoC']
 draft      = true
 +++
-
-<!-- TODO MINI -->
