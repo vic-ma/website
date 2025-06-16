@@ -5,12 +5,14 @@ date       = '2025-05-16'
 categories = ['GSoC']
 +++
 
+
 I will be contributing to GNOME Crosswords, as part of the Google Summer of Code 2025 program. My project adds construction aids to the Crosswords editor. These aids provide hints, warnings, and data that help the user create better crossword puzzles.
 
 I have three mentors:
 * Jonathan Blandford
 * Federico Mena Quintero
 * Tanmay Patil
+
 
 ## GNOME Crosswords
 
@@ -21,6 +23,7 @@ The [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords) project consists
 My project focuses on the Crosswords *editor*.
 
 To learn more about GNOME Crosswords, check out this [GUADEC presentation](https://www.youtube.com/watch?v=fcQfpQLLzYo) that Jonathan Blandford, the creator of Crosswords, gave last year.
+
 
 ## Crossword construction
 
@@ -44,6 +47,7 @@ Suffice it to say, creating a good crossword puzzle is difficult. Thankfully, cr
 
 The goal of my GSoC project is to add additional construction aids to the Crosswords editor. These aids will help the user create better crossword puzzles.
 
+
 ## Construction aids
 
 Here's a list of potential construction aids that this project can add:
@@ -56,6 +60,7 @@ Here's a list of potential construction aids that this project can add:
 * Parts-of-speech distribution graph.
 
 Right now, we are in the community bonding period of the GSoC program (May 8 to June 1). During this period, I will work with my mentors to determine which construction aid or aids this project should add, what they should look like, and how they should be implemented. By the end of the month, I will have created some design docs laying all this out. That will make it much easier to hit the ground running, once the coding period starts, in June.
+
 
 ## Mini crossword
 

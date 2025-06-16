@@ -5,6 +5,7 @@ slug       = 'coding-begins'
 categories = ['GSoC']
 +++
 
+
 Today marks the end of the community bonding period, and the start of the coding period, of GSoC.
 
 In the last two weeks, I've been looking into other crossword editors that are on the market, in order to see what features they have that we should implement. I compiled everything I saw into a [findings document](https://pad.gnome.org/s/aGYPwTen5).
