@@ -3,7 +3,7 @@ title      = 'A strange bug'
 date       = '2025-06-16'
 slug       = 'strange-bug'
 categories = ['GSoC']
-draft      = true
+draft      = false
 +++
 
 
@@ -38,25 +38,25 @@ By the end of the first week, I had a good idea of how the word-suggestions-list
 
 ## Investigating the bug
 
-After doing some testing, I realized that the seemingly random orderings of the lists are not so random after all! The lists are actually all in alphabetical order---but based on the letter that corresponds to the cell, which is usually not the first letter.
+After doing some testing, I realized that the seemingly random orderings of the lists are not so random after all! The lists are actually all in alphabetical order---but based on the letter that corresponds to the cell, not necessarily the first letter.
 
 What I mean is this:
 * The word suggestions list for cell `α` is sorted alphabetically by the first letter of the words. (This is normal alphabetical order.) For example:
   ```
-  [A]LE, [A]XE, [B]AY, [B]OA, [C]AB
+  ALE, AXE, BAY, BOA, CAB
   ```
 * The word suggestions list for cell `β` is sorted alphabetically by the second letter of the words. For example:
   ```
-  C[A]B, B[A]Y, A[L]E, B[O]A, A[X]E
+  CAB, BAY, ALE, BOA, AXE
   ```
 * The word suggestions list for cell `γ` is sorted alphabetically by the third letter of the words. For example:
   ```
-  BO[A], CA[B], AL[E], AX[E], BA[Y]
+  BOA, CAB, ALE, AXE, BAY
   ```
 
 
 ## Fixing the bug
 
-The cause of the bug is quite simple: The function that generates the word suggestions list does not sort the list before it returns it. So the order of the list is whatever order we added the words in. And because of how our implementation works, that order happens to be alphabetical, based on the letter that corresponds to the cell.
+The cause of the bug is quite simple: The function that generates the word suggestions list does not sort the list before it returns it. So the order of the list is whatever order the function added the words in. And because of how our implementation works, that order happens to be alphabetical, based on the letter that corresponds to the cell.
 
-The fix for the bug is also quite simple---at least theoretically. All we need to do is sort the list before we return it. In actuality, this fix runs into some other problems that need to be addressed. But anyway, that's for me to work on this week.
+The fix for the bug is also quite simple---at least theoretically. All we need to do is sort the list before we return it. But in reality, this fix runs into some other problems that need to be addressed. Those problems are what I'm going to work on this week.
