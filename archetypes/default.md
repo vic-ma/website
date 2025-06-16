@@ -1,6 +1,6 @@
 +++
 title      = 'TODO'
-date       = '{{ .Date | time.Format ":date_medium" }}'
+date       = 'TODO'
 slug       = 'TODO'
 categories = ['GSoC']
 draft      = true
