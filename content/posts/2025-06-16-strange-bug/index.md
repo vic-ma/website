@@ -27,9 +27,9 @@ There are no restrictions whatsoever, so all three cells should have a word sugg
 But that's not what actually happens. In reality, the word suggestions list appears to change quite dramatically. At the very least, the order of the words changes. And it seems like some words may even appear in one list but not another. What's going on here?
 
 
-## Understanding the intersection code
+## Understanding the code
 
-Before trying I spent the first week learning how the intersection code works. I took [notes](https://pad.gnome.org/s/R5IvXtNwS#Intersection-code-notes) along the way. Creating diagrams for the word list resource (a pre-compiled resource that the intersection code uses) really helped solidify my understanding.
+My first step was to understand how the code for the word suggestions list works. This is what I spent the first week on. I took [notes](https://pad.gnome.org/s/R5IvXtNwS#Intersection-code-notes) along the way, in order to solidify my understanding, and to serve as a useful reference in the future. I especially found it helpful to create diagrams for the word list resource (a pre-compiled resource that the code uses).
 
 ![Word list resource diagram](https://s3.us-east-2.amazonaws.com/hedgedoc-gnome-org/uploads/0f1b4663-f209-4f39-8630-4a3ecd7b021a.png)
 
