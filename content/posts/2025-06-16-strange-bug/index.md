@@ -31,7 +31,7 @@ But that's not what actually happens. In reality, the word suggestions list chan
 
 My first step was to understand how the code for the word suggestions list works. This is what I spent the first week on. I took [notes](https://pad.gnome.org/s/R5IvXtNwS#Intersection-code-notes) along the way, in order to solidify my understanding, and to serve as a useful reference in the future. I especially found it helpful to create diagrams for the word list resource (a pre-compiled resource that the code uses).
 
-![Word list resource diagram](https://s3.us-east-2.amazonaws.com/hedgedoc-gnome-org/uploads/0f1b4663-f209-4f39-8630-4a3ecd7b021a.png)
+![Word list resource diagram](https://victorma.ca/posts/strange-bug/diagram.png)
 
 By the end of the first week, I had a good idea of how the word-suggestions-list code works. The next step was to figure out what was causing the bug.
 
@@ -41,7 +41,7 @@ By the end of the first week, I had a good idea of how the word-suggestions-list
 After doing some testing, I realized that the seemingly random ordering that the bug caused is not so random after all! The lists are actually all in alphabetical order---but based on the letter that corresponds to the cell.
 
 What I mean is this:
-* The word suggestions list for cell `α` is sorted alphabetically by the first letter of the words. This is normal alphabetical order. For example:
+* The word suggestions list for cell `α` is sorted alphabetically by the first letter of the words. (This is normal alphabetical order.) For example:
   ```
   ALE, AXE, BAY, BOA, CAB
   ```
@@ -53,3 +53,10 @@ What I mean is this:
   ```
   BOA, CAB, ALE, AXE, BAY
   ```
+
+
+## Fixing the bug
+
+The cause of the bug is quite simple: The function that generates the word suggestions list does not sort the list before it returns it. So the order of the list is whatever order we added the words in. And because of how our implementation works, that order happens to be alphabetical, based on the letter that corresponds to the cell.
+
+The fix for the bug is also quite simple---at least theoretically. All we need to do is sort the list before we return it. In actuality, this fix runs into some other problems that need to be addressed. But anyway, that's for me to work on this week.
