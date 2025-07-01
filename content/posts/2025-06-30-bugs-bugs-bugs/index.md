@@ -14,7 +14,7 @@ In the past two weeks, I worked on two things:
 
 A rebus cell is a cell that contains more than one letter in it. These aren't too common in crossword puzzles, but they do appear occasionally---and especially so in harder puzzles.
 
-![A rebus cell](https://victorma.ca/gsoc-4/rebus.png)
+![A rebus cell](https://victorma.ca/posts/gsoc-4/rebus.png)
 
 Our word suggestions lists were not working for slots with rebus cells. More specifically, if the cursor was on a cell that's within `letters in rebus - 1` cells to the right of a rebus cell, then an assertion would fail, and the word suggestions list would be empty.
 
@@ -29,7 +29,7 @@ I think having a single list is better, because it's visually cleaner, and you d
 
 So, we decided that I should combine the two lists into one. To do this, I removed the second list widget and list model, and then I added some code to change the contents of the list model whenever the cursor direction changes.
 
-![Suggested words list](https://victorma.ca/gsoc-4/suggested-words.png)
+![Suggested words list](https://victorma.ca/posts/gsoc-4/suggested-words.png)
 
 
 ## More bugs!
