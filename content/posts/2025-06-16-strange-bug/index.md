@@ -1,7 +1,7 @@
 +++
 title      = 'A strange bug'
 date       = '2025-06-16'
-slug       = 'strange-bug'
+slug       = 'gsoc-3'
 categories = ['GSoC']
 draft      = false
 +++

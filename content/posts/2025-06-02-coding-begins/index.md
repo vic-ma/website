@@ -1,7 +1,7 @@
 +++
 title      = 'Coding begins!'
 date       = '2025-06-02'
-slug       = 'coding-begins'
+slug       = 'gsoc-2'
 categories = ['GSoC']
 +++
 

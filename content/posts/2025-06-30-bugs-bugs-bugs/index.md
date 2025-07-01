@@ -1,7 +1,7 @@
 +++
 title      = 'Bugs, bugs, and more bugs!'
 date       = '2025-07-01'
-slug       = 'bugs-bugs-bugs'
+slug       = 'gsoc-4'
 categories = ['GSoC']
 +++
 

@@ -1,6 +1,6 @@
 +++
 title      = 'Introducing my GSoC 2025 project'
-slug       = 'gsoc-introduction'
+slug       = 'gsoc-1'
 date       = '2025-05-16'
 categories = ['GSoC']
 +++
