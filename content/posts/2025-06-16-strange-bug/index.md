@@ -31,7 +31,7 @@ But that's not what actually happens. In reality, the word suggestions list chan
 
 My first step was to understand how the code for the word suggestions list works. I took [notes](https://pad.gnome.org/s/R5IvXtNwS#Intersection-code-notes) along the way, in order to solidify my understanding. I especially found it useful to create diagrams for the word list resource (a pre-compiled resource that the code uses):
 
-![Word list resource diagram](https://victorma.ca/posts/strange-bug/diagram.png)
+![Word list resource diagram](https://victorma.ca/posts/gsoc-3/diagram.png)
 
 By the end of the first week, I had a good idea of how the word-suggestions-list code works. The next step was to figure out the cause of the bug and how to fix it.
 
