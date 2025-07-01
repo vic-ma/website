@@ -33,4 +33,4 @@ So, we decided that I should unify the two lists into one. To do this, I removed
 
 I only started working on the rebus bug, because I was working on the word suggestions bug. And I only started working on that bug because I discovered it while using the Editor. And it's a similar story with the word lists unification task. I only started working on that because I noticed the sidebar jumping bug.
 
-After having fixed these two bugs, the plan was for me to focus on 
+After having fixed these two bugs, the plan was for me to focus on a bigger contribution---adding a step of lookahead to our fill algorithm. But alas, as I was fixing these two bugs, I noticed a few more bugs---but they shouldn't take too long, and they ought to be fixed. So I'm going to do that, and then transition to working on the fill lookahead bug.
