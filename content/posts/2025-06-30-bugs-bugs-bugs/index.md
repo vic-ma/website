@@ -14,6 +14,8 @@ In the past two weeks, I worked on two things:
 
 A rebus cell is a cell that contains more than one letter in it. These aren't too common in crossword puzzles, but they do appear occasionally---and especially so in harder puzzles.
 
+![A rebus cell](https://victorma.ca/gsoc-4/rebus.png)
+
 Our word suggestions lists were not working for slots with rebus cells. More specifically, if the cursor was on a cell that's within `letters in rebus - 1` cells to the right of a rebus cell, then an assertion would fail, and the word suggestions list would be empty.
 
 The cause of this bug is that our intersection code (which is what generates the suggested words) was not accounting for rebuses at all! The fix was to modify the intersection code to correctly count the additional letters that a rebus cell contains.
@@ -26,6 +28,8 @@ The Crosswords editor shows a the words list for both Across and Down, at the sa
 I think having a single list is better, because it's visually cleaner, and you don't have to take a second to find right list. It also so happens that we have a problem with our sidebar jumping, in large part because of the two suggested words lists.
 
 So, we decided that I should combine the two lists into one. To do this, I removed the second list widget and list model, and then I added some code to change the contents of the list model whenever the cursor direction changes.
+
+![Suggested words list](https://victorma.ca/gsoc-4/suggested-words.png)
 
 
 ## More bugs!
