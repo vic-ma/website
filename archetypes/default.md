@@ -1,10 +1,7 @@
 +++
 title      = 'TODO'
 date       = 'TODO'
-slug       = 'TODO'
+slug       = 'gsoc-TODO'
 categories = ['GSoC']
 draft      = true
 +++
-
-
->

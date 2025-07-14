@@ -5,9 +5,10 @@ slug       = 'gsoc-4'
 categories = ['GSoC']
 +++
 
-In the past two weeks, I worked on two things:
-* Squashing a rebus bug.
-* Combine the two suggested words lists into one.
+In the last two weeks, I did three things:
+* Fixed a rebus bug.
+* Combined the two suggested words lists into one.
+* Found some more bugs.
 
 
 ## The rebus bug
@@ -18,7 +19,7 @@ A rebus cell is a cell that contains more than one letter in it. These aren't to
 
 Our word suggestions lists were not working for slots with rebus cells. More specifically, if the cursor was on a cell that's within `letters in rebus - 1` cells to the right of a rebus cell, then an assertion would fail, and the word suggestions list would be empty.
 
-The cause of this bug is that our intersection code (which is what generates the suggested words) was not accounting for rebuses at all! The fix was to modify the intersection code to correctly count the additional letters that a rebus cell contains.
+The cause of this bug is that our intersection code (which is what generates the suggested words) was not accounting for rebuses at all! The fix was to [modify the intersection code](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/251) to correctly count the additional letters that a rebus cell contains.
 
 
 ## Combine the suggested words lists
@@ -27,7 +28,7 @@ The Crosswords editor shows a the words list for both Across and Down, at the sa
 
 I think having a single list is better, because it's visually cleaner, and you don't have to take a second to find right list. It also so happens that we have a problem with our sidebar jumping, in large part because of the two suggested words lists.
 
-So, we decided that I should combine the two lists into one. To do this, I removed the second list widget and list model, and then I added some code to change the contents of the list model whenever the cursor direction changes.
+So, we decided that I should [combine the two lists into one](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/256). To do this, I removed the second list widget and list model, and then I added some code to change the contents of the list model whenever the cursor direction changes.
 
 ![Suggested words list](https://victorma.ca/posts/gsoc-4/suggested-words.png)
 
@@ -36,4 +37,4 @@ So, we decided that I should combine the two lists into one. To do this, I remov
 
 I only started working on the rebus bug because I was working on the word suggestions bug. And I only started working on that bug because I discovered it while using the Editor. And it's a similar story with the words lists unification task. I only started working on it because I noticed the sidebar jumping bug.
 
-Now, the plan was that after I fixed those two bugs, I would turn my attention to a bigger task: adding a step of lookahead to our fill algorithm. But alas, as I was fixing the two bugs, I noticed a few more bugs. But they shouldn't take too long, and they ought to be fixed. So I'm going to do that first, and then transition to working on the fill lookahead task.
+Now, the plan was that after I fixed those two bugs, I would turn my attention to a bigger task: adding a step of lookahead to our fill algorithm. But alas, as I was fixing the two bugs, I noticed a few more bugs ([1](https://gitlab.gnome.org/jrb/crosswords/-/issues/276), [2](https://gitlab.gnome.org/jrb/crosswords/-/issues/277), [3](https://gitlab.gnome.org/jrb/crosswords/-/issues/278)). But they shouldn't take too long, and they ought to be fixed. So I'm going to do that first, and then transition to working on the fill lookahead task.
