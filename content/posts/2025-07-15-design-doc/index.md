@@ -36,11 +36,9 @@ And here's what *Annie Use Your Telescope*, a handwriting font, looks like. It g
 
 ## Design doc
 
-My next task is to improve the word suggestion algorithm for the Crosswords Editor. And the first step is to create a design doc that explains my intended change. This is what I worked on last week.
+My next task is to improve the word suggestion algorithm for the Crosswords Editor. And the first step for doing that is to create a design doc that explains my intended change. This is what I worked on last week. Here's a short snippet from [my doc](https://pad.gnome.org/s/OAL239g-o), which highlights the problem with our current word suggestion algorithm:
 
-Here's a short snippet from [the doc](https://pad.gnome.org/s/OAL239g-o):
-
-> For example, consider the following grid:
+> Consider the following grid:
 > ```
 > +---+---+---+---+
 > |   |   |   | Z |
@@ -58,4 +56,9 @@ Here's a short snippet from [the doc](https://pad.gnome.org/s/OAL239g-o):
 > 
 > If the cursor is on the bottom right cell, then our word suggestion algorithm correctly recognizes that the slot is unfillable and returns an empty list.
 > 
-> But suppose the cursor is on one of the other cells in 4-Across. Then, the algorithm has no idea about 4-Down and the constraint it imposes. So, the algorithm returns all words that match the filter *WOR?*, like *WORD* and *WORM*---even though they do not actually fit the slot. 
+> But suppose the cursor is on one of the other cells in 4-Across. Then, the algorithm has no idea about 4-Down and the constraint it imposes. So, the algorithm returns all words that match the filter *WOR?*, like *WORD* and *WORM*---even though they do not actually fit the slot.
+
+In the process of writing the doc, I also came across the concept of constraint satisfaction problems (CSPs), and the related AC-3 algorithm.
+
+https://cs.uwaterloo.ca/~jhoey/teaching/cs486/lecture4-nup.pdf
+
