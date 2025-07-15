@@ -1,9 +1,8 @@
 +++
 title      = 'My first design doc'
-date       = '2025-07-14'
+date       = '2024-07-14'
 slug       = 'gsoc-5'
 categories = ['GSoC']
-draft      = true
 +++
 
 In the last two weeks, I investigated some bugs, tested some fonts, and started working on a design doc.
@@ -13,7 +12,7 @@ In the last two weeks, I investigated some bugs, tested some fonts, and started 
 
 I found a two more UI-related bugs ([1](https://gitlab.gnome.org/jrb/crosswords/-/issues/280), [2](https://gitlab.gnome.org/jrb/crosswords/-/issues/282)). These are in addition to the ones I mentioned in my last blog post---and they're all connected. They have to do with GTK and sidebars and resizing, and other things like that. 
 
-Anyway, I looked into them briefly, but in the end, my mentor decided that the bugs are complicated enough that he should [handle them himself](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/258). His fix involves replacing all the `.ui` files with [Blueprint] files. This will make it much nicer to make changes to the UI in the future.
+Anyway, I looked into them briefly, but in the end, my mentor decided that the bugs are complicated enough that he should [handle them himself](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/258). His fix involves replacing all the `.ui` files with [Blueprint](https://gitlab.gnome.org/GNOME/blueprint-compiler) files. This will make it much nicer to make changes to the UI in the future.
 
 
 ## Font testing
