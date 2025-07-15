@@ -58,7 +58,8 @@ My next task is to improve the word suggestion algorithm for the Crosswords Edit
 > 
 > But suppose the cursor is on one of the other cells in 4-Across. Then, the algorithm has no idea about 4-Down and the constraint it imposes. So, the algorithm returns all words that match the filter *WOR?*, like *WORD* and *WORM*---even though they do not actually fit the slot.
 
-In the process of writing the doc, I also came across the concept of constraint satisfaction problems (CSPs), and the related AC-3 algorithm.
+### CSPs
 
-https://cs.uwaterloo.ca/~jhoey/teaching/cs486/lecture4-nup.pdf
+In the process of writing the doc, I came across the concept of a [constraint satisfaction problem (CSP)](https://cs.uwaterloo.ca/~jhoey/teaching/cs486/lecture4-nup.pdf), and the related AC-3 algorithm. A CSP is a formalization of a problem that...well...involves satisfying a constraint. And the AC-3 algorithm is an algorithm that's sometimes used when solving CSPs.
 
+The problem of filling a crossword grid can be formulated as a CSP. And we can use the AC-3 algorithm to generate perfect word suggestion lists for every cell.  This isn't the approach I will be taking. However, we may implement it in the future. And so, I made sure to document the AC-3 approach in my design doc.
