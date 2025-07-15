@@ -28,4 +28,8 @@ edit-grid, wordlist {
 ```
 Then, I could dynamically change the font to whatever I wanted.
 
-![A rebus cell](https://victorma.ca/posts/gsoc-4/rebus.png)
+Here's what *Source Code Pro*, a monospace font, looks like:
+![Monospace font](https://victorma.ca/posts/gsoc-5/monospace.png)
+
+And here's what *Annie Use Your Telescope*, a handwriting font, looks like:
+![Handwriting font](https://victorma.ca/posts/gsoc-5/handwriting.png)
