@@ -10,9 +10,9 @@ In the last two weeks, I investigated some bugs, tested some fonts, and started 
 
 ## Bugs
 
-I found two more UI-related bugs ([1](https://gitlab.gnome.org/jrb/crosswords/-/issues/280), [2](https://gitlab.gnome.org/jrb/crosswords/-/issues/282)). These are in addition to the ones I mentioned in my last blog post---and they're all related. They have to do with GTK and sidebars and resizing, and other things of that nature. 
+I found two more UI-related bugs ([1](https://gitlab.gnome.org/jrb/crosswords/-/issues/280), [2](https://gitlab.gnome.org/jrb/crosswords/-/issues/282)). These are in addition to the ones I mentioned in my last blog post---and they're all related. They have to do with GTK and sidebars and resizing.
 
-Anyway, I looked into them briefly, but in the end, my mentor decided that the bugs are complicated enough that he should [handle them himself](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/258). His fix was to replace all the `.ui` files with [Blueprint](https://gitlab.gnome.org/GNOME/blueprint-compiler) files, and then make changes from there until all the bugs were gone. The port to Blueprint also makes it much easier to edit the UI in the future.
+I looked into them briefly, but in the end, my mentor decided that the bugs are complicated enough that he should [handle them himself](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/258). His fix was to replace all the `.ui` files with [Blueprint](https://gitlab.gnome.org/GNOME/blueprint-compiler) files, and then make changes from there to squash all the bugs. The port to Blueprint also makes it much easier to edit the UI in the future.
 
 
 ## Font testing
@@ -27,16 +27,16 @@ edit-grid, wordlist {
 ```
 This let me dynamically change the font, without having to recompile each time. I created a document with all the [fonts that I tried](https://pad.gnome.org/s/6mTne5Ehs).
 
-Here's what *Source Code Pro*, a monospace font, looks like. It gives a more rigid look---especially for the word suggestion list, where all the letters now line up vertically.
+Here's what *Source Code Pro*, a monospace font, looks like. It gives a more rigid look---especially for the word suggestion list, where all the letters line up vertically.
 ![Monospace font](https://victorma.ca/posts/gsoc-5/monospace.png)
 
-And here's what *Annie Use Your Telescope*, a handwriting font, looks like. It gives a fun, charming look to the crossword grid, like it's been filled out by hand. It's a bit too unconventional to use as the default font, but it would definitely be cool to have as an option that the user can enable.
+And here's what *Annie Use Your Telescope*, a handwriting font, looks like. It gives a fun, charming look to the crossword grid---like it's been filled out by hand. It's a bit too unconventional to use as the default font, but it would definitely be cool to add as an option that the user can enable.
 ![Handwriting font](https://victorma.ca/posts/gsoc-5/handwriting.png)
 
 
 ## Design doc
 
-My next task is to improve the word suggestion algorithm for the Crosswords Editor. And the first step for doing that is to create a design doc that explains my intended change. This is what I worked on last week. Here's a short snippet from [my doc](https://pad.gnome.org/s/OAL239g-o), which highlights the problem with our current word suggestion algorithm:
+My current task is to improve the word suggestion algorithm for the Crosswords Editor. Last week, I starting working on a [design doc](https://pad.gnome.org/s/OAL239g-o) that explains my intended change. Here's a short snippet from the doc, which highlights the problem with our current word suggestion algorithm:
 
 > Consider the following grid:
 > ```
@@ -51,11 +51,11 @@ My next task is to improve the word suggestion algorithm for the Crosswords Edit
 > +---+---+---+---+
 > ```
 > The 4-Down slot begins with *ZER*, so the only word it can be is *ZERO*. This means that the cell in the bottom-right corner must be the letter *O*.
-> 
+>
 > But 4-Across starts with *WOR*. And *WORO* is not a word. So the bottom-right corner cannot actually be the letter *O*. This means that the slot is unfillable.
-> 
+>
 > If the cursor is on the bottom right cell, then our word suggestion algorithm correctly recognizes that the slot is unfillable and returns an empty list.
-> 
+>
 > But suppose the cursor is on one of the other cells in 4-Across. Then, the algorithm has no idea about 4-Down and the constraint it imposes. So, the algorithm returns all words that match the filter *WOR?*, like *WORD* and *WORM*---even though they do not actually fit the slot.
 
 ### CSPs
