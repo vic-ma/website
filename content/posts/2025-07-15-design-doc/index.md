@@ -27,8 +27,11 @@ edit-grid, wordlist {
 ```
 Then, I could dynamically change the font to whatever I wanted.
 
-Here's what *Source Code Pro*, a monospace font, looks like:
+Here's what *Source Code Pro*, a monospace font, looks like. It gives an interesting, more rigid look---especially for the word suggestion list, where all the letters now line up vertically.
 ![Monospace font](https://victorma.ca/posts/gsoc-5/monospace.png)
 
-And here's what *Annie Use Your Telescope*, a handwriting font, looks like:
+And here's what *Annie Use Your Telescope*, a handwriting font, looks like. It gives a fun, charming look to the crossword grid, like it's been filled out by hand. It's a bit too quirky to use as a default font, but adding it as an option might be nice.
 ![Handwriting font](https://victorma.ca/posts/gsoc-5/handwriting.png)
+
+
+## Design doc
