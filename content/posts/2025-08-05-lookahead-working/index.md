@@ -11,17 +11,17 @@ In the last two weeks, I've been working on my lookahead-based word suggestion a
 
 ## Without my changes
 
-Here's the upstream GNOME Crosswords, with a grid that the current word suggestion algorithm can't handle properly:
+Here's the upstream Crosswords Editor, with a problematic grid:
 
-![Screenshot without my changes](https://victorma.ca/posts/gsoc-6/upstream.png)
+![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
-The app suggests the word *WORD*, for the 4-Across slot. But that is not a valid suggestion, because it causes 4-Down to become *ZERD*, which is certainly not a word.
+The app suggests words like *WORD* and *WORM*, for the 4-Across slot. But no suggestion is valid, because they all cause 4-Down to contain an invalid word.
 
-This is because the app only looks at the row and column that intersects the cursor. So it has no idea about the 4-Down slot.
+THe problem is that the current word suggestion algorithm only looks at the row and column where the cursor is. So it has no idea about the 4-Down slot. If it could see 4-Down, it would know that no word fits in 4-Across that also fits in 4-Down---and it would return an empty word suggestion list.
 
 
 ## With my changes
 
-My algorithm, on the other hand, looks at the every slot that intersects the current slot. The current slot is 4-Across. So the algorithm looks at 1-Down, 2-Down, 3-Down, and 4-Down. When it reaches 4-Down, it sees that no letter fits in the empty cell. So, the algorithm returns an empty list of word suggestions.
+My algorithm fixes this problem by looking at *every* intersecting slot of the current slot. In the problematic grid, the current slot is 4-Across. So, my algorithm looks at 1-Down, 2-Down, 3-Down, and 4-Down. When it reaches 4-Down, it sees that no letter fits in the empty cell. Every possible letter leads to either 4-Across or 4-Down or both slots to contain an invalid word. So, the algorithm correctly returns an empty list of word suggestions.
 
-![Screenshot with my changes](https://victorma.ca/posts/gsoc-6/upstream.png)
+![Fixed behaviou](https://victorma.ca/posts/gsoc-6/fixed.png)
