@@ -1,6 +1,6 @@
 +++
 title      = "It's alive!"
-date       = '2025-08-05'
+date       = '2024-08-05'
 slug       = 'gsoc-6'
 categories = ['GSoC']
 +++
