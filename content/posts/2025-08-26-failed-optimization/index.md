@@ -62,29 +62,29 @@ So, I thought, there's a better implementation for this function:
 2. Run `g_hash_table_foreach_steal ()` on the larger word set.
 3. If the second set was the larger set, then swap the pointers.
 
+Something like this:
 ```c
 gboolean
-word_set_remove_unique (WordSet **word_set1_ptr, WordSet **word_set2_ptr)
+word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
 {
-  WordSet *word_set1 = *word_set1_ptr;
-  WordSet *word_set2 = *word_set2_ptr;
-  if (g_hash_table_size (word_set1) <= g_hash_table_size (word_set2))
+  WordSet *word_set1_p = *word_set1_pp;
+  WordSet *word_set2_p = *word_set2_pp;
+  if (g_hash_table_size (word_set1_p) <= g_hash_table_size (word_set2_p))
     {
-      g_hash_table_foreach_steal (word_set1, word_not_in_set, word_set2);
+      g_hash_table_foreach_steal (word_set1_p, word_not_in_set, word_set2_p);
       return FALSE;
     }
   else
     {
-      g_hash_table_foreach_steal (word_set2, word_not_in_set, word_set1);
-      *word_set1_ptr = word_set2;
-      *word_set2_ptr = word_set1;
+      g_hash_table_foreach_steal (word_set2_p, word_not_in_set, word_set1_p);
+      *word_set1_pp = word_set2_p;
+      *word_set2_pp = word_set1_p;
       return TRUE;
     }
 }
 ```
 
-
-<!-- ## Not so obvious? -->
+## Not so obvious?
 
 ```
 Targeting 16.67 ms for a frame
