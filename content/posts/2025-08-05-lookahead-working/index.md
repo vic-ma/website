@@ -18,7 +18,7 @@ The editor suggests words like *WORD* and *WORM*, for the 4-Across slot. But non
 
 The words that the editor suggests do work for 4-Across. But they do not work for 4-Down. They all cause 4-Down to become a nonsensical word.
 
-The problem here is that the current word suggestion algorithm only looks at the row and column where the cursor is. So it sees 4-Across and 1-Down---but it has no idea about 4-Down. If it could see 4-Down, then it would realise that no word that fits in 4-Across also fits in 4-Down---and it would return an empty word suggestion list.
+The problem here is that the current word suggestion algorithm only looks at the row and column where the cursor is. So it sees 4-Across and 1-Down---but it has no idea about 4-Down. If it could see 4-Down, then it would realize that no word that fits in 4-Across also fits in 4-Down---and it would return an empty word suggestion list.
 
 
 ## With my changes

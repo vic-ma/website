@@ -32,16 +32,16 @@ static gboolean word_not_in_set (gpointer key,
 
 `word_set_remove_unique ()` takes two sets and removes any elements in the first set that don't exist in the second set. So essentially, it performs a set intersection, in-place, on the first set.
 
-[My lookahead function](https://gitlab.gnome.org/jrb/crosswords/-/blob/d80c5792235e348348c9438e19b9a6bcdc20966b/src/clue-matches.c#L169) calls `word_set_remove_unique ()` multiple times, in a loop. It always passes in the same persisted word set---`clue_matches_set`---as the first set. The second set changes with each loop iteration. So essentially, my lookahead function uses `word_set_remove_unique` to gradually refine `clue_matches_set`.
+[My lookahead function](https://gitlab.gnome.org/jrb/crosswords/-/blob/d80c5792235e348348c9438e19b9a6bcdc20966b/src/clue-matches.c#L169) calls `word_set_remove_unique ()` multiple times, in a loop. My lookahead function always passes in the same persisted word set---`clue_matches_set`---as the first set. The second set changes with each loop iteration. So essentially, my lookahead function uses `word_set_remove_unique` to gradually refine `clue_matches_set`.
 
 Now, importantly, `clue_matches_set` is sometimes larger than the second word set---potentially several orders of magnitude larger. And because of that, I realized that there was an optimization I could make.
 
 
 ## An obvious optimization
 
-See, [`g_hash_table_foreach_steal ()`](https://docs.gtk.org/glib/type_func.HashTable.foreach_steal.html) runs the boolean function on each element in the hash table, and it removes the element if the function returns `TRUE`. And my code always passes in `word_set1` as the hash table (with `word_set2` acting as `user_data`).
+See, [`g_hash_table_foreach_steal ()`](https://docs.gtk.org/glib/type_func.HashTable.foreach_steal.html) runs the given boolean function on each element of the given hash table, and it removes the element if the function returns `TRUE`. And my code always passes in `word_set1` as the hash table (with `word_set2` being passed in as `user_data`).
 
-But `word_set1` is sometimes smaller than `word_set2`. This means that `g_hash_table_foreach_steal ()` can sometimes  perform this sort of calculation:
+But `word_set1` is sometimes smaller than `word_set2`. This means that `g_hash_table_foreach_steal ()` sometimes perform this sort of calculation:
 ```c
 WordSet *word_set1;  /* Contains 1000 elements. */
 WordSet *word_set2;  /* Contains 10   elements. */
@@ -84,21 +84,10 @@ word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
 }
 ```
 
+
 ## Not so obvious?
 
+Well, I made that optimization, and it turns out...it's not really optimal. See, GNOME Crosswords some profiling code that measures how long each frame takes to render. And the output looks like something like this:
 ```
-Targeting 16.67 ms for a frame
+``` 
 
-update_all():
-	Average time (9.226 ms)
-	Longest time (33.599 ms)
-	Total iterations (88)
-	Total number of iterations longer than one frame (9)
-	Total time spent in this function (811.912f ms)
-
-word_list_find_intersection():
-	Average time (1.381 ms)
-	Longest time (7.285 ms)
-	Total iterations (686)
-	Total time spent in this function (947.504f ms)
-```
