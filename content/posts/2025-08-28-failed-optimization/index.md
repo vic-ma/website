@@ -32,16 +32,16 @@ static gboolean word_not_in_set (gpointer key,
 
 `word_set_remove_unique ()` takes two sets and removes any elements in the first set that don't exist in the second set. So essentially, it performs a set intersection, in-place, on the first set.
 
-[My lookahead function](https://gitlab.gnome.org/jrb/crosswords/-/blob/d80c5792235e348348c9438e19b9a6bcdc20966b/src/clue-matches.c#L169) calls `word_set_remove_unique ()` multiple times, in a loop. My lookahead function always passes in the same persisted word set---`clue_matches_set`---as the first set. The second set changes with each loop iteration. So essentially, my lookahead function uses `word_set_remove_unique` to gradually refine `clue_matches_set`.
+[My lookahead function](https://gitlab.gnome.org/jrb/crosswords/-/blob/d80c5792235e348348c9438e19b9a6bcdc20966b/src/clue-matches.c#L169) calls `word_set_remove_unique ()` multiple times, in a loop. My lookahead function always passes in the same persisted word set---`clue_matches_set`---as the first set. The second set changes with each loop iteration. So essentially, my lookahead function uses `word_set_remove_unique ()` to gradually refine `clue_matches_set`.
 
 Now, importantly, `clue_matches_set` is sometimes larger than the second word set---potentially several orders of magnitude larger. And because of that, I realized that there was an optimization I could make.
 
 
 ## An obvious optimization
 
-See, [`g_hash_table_foreach_steal ()`](https://docs.gtk.org/glib/type_func.HashTable.foreach_steal.html) runs the given boolean function on each element of the given hash table, and it removes the element if the function returns `TRUE`. And my code always passes in `word_set1` as the hash table (with `word_set2` being passed in as `user_data`).
+See, [`g_hash_table_foreach_steal ()`](https://docs.gtk.org/glib/type_func.HashTable.foreach_steal.html) runs the given boolean function on each element of the given hash table, and it removes the element if the function returns `TRUE`. And my code always passes in `word_set1` as the hash table (with `word_set2` being passed in as `user_data`). This means that the boolean function is always run on the elements of `word_set1` (`clue_matches_set`).
 
-But `word_set1` is sometimes smaller than `word_set2`. This means that `g_hash_table_foreach_steal ()` sometimes performs this sort of calculation:
+But `word_set1` is sometimes smaller than `word_set2`. This means that `g_hash_table_foreach_steal ()` sometimes has to perform this sort of calculation:
 ```c
 WordSet *word_set1;  /* Contains 1000 elements. */
 WordSet *word_set2;  /* Contains 10   elements. */
@@ -55,15 +55,16 @@ for (word : word_set1)
 
 This is clearly inefficient. The point of `word_set_remove_unique ()` is to calculate the intersection of two sets. It's only an implementation detail that it does this by removing the elements from the first set.
 
-`word_set_remove_unique ()` could also work by removing the unique elements from the second set. And in the case where `word_set1` is much larger than `word_set2`, it makes more sense to do that. It could be the difference between calling `g_hash_table_contains ()` (and potentially `g_hash_table_remove ()`) 10 times and calling it 1000 times.
+The function could also work by removing the unique elements from the second set. And in the case where `word_set1` is much larger than `word_set2`, it would make more sense. It could be the difference between calling `g_hash_table_contains ()` (and potentially `g_hash_table_remove ()`) 10 times and calling it 1000 times.
 
-So, I thought, there's a better implementation for this function:
+So, I thought, I can optimize `word_set_remove_unique ()` by reimplementing it like this:
 1. Figure out which word set is larger.
 2. Run `g_hash_table_foreach_steal ()` on the larger word set.
 3. If the second set was the larger set, then swap the pointers.
 
 Something like this:
 ```c
+/* Returns whether or not the pointers were swapped. */
 gboolean
 word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
 {
