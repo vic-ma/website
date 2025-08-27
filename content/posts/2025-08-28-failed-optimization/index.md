@@ -84,7 +84,7 @@ word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
     }
 }
 ```
-a
+
 
 ## Not so obvious?
 
