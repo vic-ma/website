@@ -125,6 +125,7 @@ else
 
 Maybe I messed up the implementation somewhere. But in any case, that just goes to show the value of profiling!
 
+
 ## More testing needed
 
-So...that was going to be the blog post. But in writing this and reimplementing the optimization---the original code was lost, because I never committed it---it looks like the optimization may be working after all. So maybe I did mess up the implemention last time. In any case, more testing is needed!
+So...that was going to be the blog post. An optimization that turned out to not be so optimal. But in writing this post, I reimplemented the optimization---I lost the original code, because I never committed it---and that is the code that you see. So maybe I did mess up the implemention last time. In any case, more testing is needed!
