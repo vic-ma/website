@@ -88,7 +88,20 @@ word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
 
 ## Not so obvious?
 
-Well, I made that optimization, and it turns out...it's not really optimal. See, GNOME Crosswords some profiling code that measures how long each frame takes to render. And the output looks like something like this:
+Well, I made that optimization, and it turns out...it's not really optimal. See, we have some profiling code that measures how long each frame takes to render. The output looks like something like this:
 ```
+update_all():
+    Average time (13.621 ms)
+    Longest time (45.903 ms)
+    Total iterations (76)
+    Total number of iterations longer than one frame (27)
+    Total time spent in this function (1035.203f ms)
+
+word_list_find_intersection():
+    Average time (0.774 ms)
+    Longest time (4.651 ms)
+    Total iterations (388)
+    Total time spent in this function (300.163f ms)
 ``` 
 
+And when I compared the results between the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" implementation was actually slower.
