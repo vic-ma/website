@@ -55,14 +55,13 @@ for (word : word_set1)
 
 This is clearly inefficient. The point of `word_set_remove_unique ()` is to calculate the intersection of two sets. It's only an implementation detail that it does this by removing the elements from the first set.
 
-The function could also work by removing the unique elements from the second set. And in the case where `word_set1` is much larger than `word_set2`, it would make more sense. It could be the difference between calling `g_hash_table_contains ()` (and potentially `g_hash_table_remove ()`) 10 times and calling it 1000 times.
+The function could also work by removing the unique elements from the second set. And in the case where `word_set1` is larger than `word_set2`, that would make more sense. It could be the difference between calling `g_hash_table_contains ()` (and potentially `g_hash_table_remove ()`) 10 times and calling it 1000 times.
 
 So, I thought, I can optimize `word_set_remove_unique ()` by reimplementing it like this:
 1. Figure out which word set is larger.
 2. Run `g_hash_table_foreach_steal ()` on the larger word set.
 3. If the second set was the larger set, then swap the pointers.
 
-Something like this:
 ```c
 /* Returns whether or not the pointers were swapped. */
 gboolean
@@ -88,7 +87,7 @@ word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
 
 ## Not so obvious?
 
-Well, I made that optimization, and it turns out...it's not really optimal. See, we have some profiling code that measures how long each frame takes to render. The output looks like something like this:
+Well, I made the change and...well...it's not really optimal. See, we have some profiling code that measures how long each frame takes to render. The output looks like something like this:
 ```
 update_all():
     Average time (13.621 ms)
@@ -104,4 +103,25 @@ word_list_find_intersection():
     Total time spent in this function (300.163f ms)
 ``` 
 
-And when I compared the results between the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" implementation was actually slower.
+And when I compared the results between the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" version ran either slower or about the same.
+
+This didn't make sense to me. I wasn't necessarily expecting some massive performance boost---but I certainly didn't expect the performance to be worse. The only additional overhead is the size check and potential pointer swapping, and some bit of memory management from the calling function (my lookahead function):
+```c
+swapped = word_set_remove_unique (&clue_matches_set,
+                                  &intersection_word_set);
+if (swapped)
+  {
+    word_array_unref (initial_word_array);
+    initial_word_array = intersection_word_array;
+  }
+else
+  {
+    word_array_unref (intersection_word_array);
+  }
+```
+
+Maybe I messed up the implementation somewhere. But in any case, that just goes to show the value of profiling!
+
+## More testing needed
+
+So...that was going to be the blog post. But in writing this and reimplementing the optimization---the original code was lost, because I never committed it---it looks like the optimization may be working after all. So maybe I did mess up the implemention last time.
