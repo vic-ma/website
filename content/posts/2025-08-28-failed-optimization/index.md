@@ -109,6 +109,7 @@ And when I compared the results of the optimized and unoptimized `word_set_remov
 
 This didn't make sense to me. The only additional overhead I added was the size check and pointer swapping, along with some memory management from the calling code (my lookahead function):
 ```c
+/* The code that calls word_set_remove_unique (). */
 swapped = word_set_remove_unique (&clue_matches_set,
                                   &intersection_word_set);
 if (swapped)
