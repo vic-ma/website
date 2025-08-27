@@ -87,7 +87,9 @@ word_set_remove_unique (WordSet **word_set1_pp, WordSet **word_set2_pp)
 
 ## Not so obvious?
 
-Well, I made the change and...well...it's not really optimal. See, we have some profiling code that measures how long each frame takes to render. The output looks like something like this:
+Well, I made the change, and...it's actually slower.
+
+We have some profiling code that measures how long each frame takes to render. The output looks like this:
 ```
 update_all():
     Average time (13.621 ms)
@@ -103,9 +105,9 @@ word_list_find_intersection():
     Total time spent in this function (300.163f ms)
 ``` 
 
-And when I compared the results between the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" version ran either slower or about the same.
+And when I compared the results of the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" version performed either worse or about the same.
 
-This didn't make sense to me. I wasn't necessarily expecting some massive performance boost---but I certainly didn't expect the performance to be worse. The only additional overhead is the size check and potential pointer swapping, and some bit of memory management from the calling function (my lookahead function):
+This didn't make sense to me. The only additional overhead I added was the size check and pointer swapping, along with some memory management from the calling code (my lookahead function):
 ```c
 swapped = word_set_remove_unique (&clue_matches_set,
                                   &intersection_word_set);
@@ -124,4 +126,4 @@ Maybe I messed up the implementation somewhere. But in any case, that just goes 
 
 ## More testing needed
 
-So...that was going to be the blog post. But in writing this and reimplementing the optimization---the original code was lost, because I never committed it---it looks like the optimization may be working after all. So maybe I did mess up the implemention last time.
+So...that was going to be the blog post. But in writing this and reimplementing the optimization---the original code was lost, because I never committed it---it looks like the optimization may be working after all. So maybe I did mess up the implemention last time. In any case, more testing is needed!
