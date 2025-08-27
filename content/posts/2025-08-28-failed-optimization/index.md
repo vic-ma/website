@@ -1,6 +1,6 @@
 +++
 title      = 'When is an optimization not optimal?'
-date       = '2025-08-26'
+date       = '2025-08-28'
 slug       = 'gsoc-7'
 categories = ['GSoC']
 draft      = true
@@ -41,7 +41,7 @@ Now, importantly, `clue_matches_set` is sometimes larger than the second word se
 
 See, [`g_hash_table_foreach_steal ()`](https://docs.gtk.org/glib/type_func.HashTable.foreach_steal.html) runs the given boolean function on each element of the given hash table, and it removes the element if the function returns `TRUE`. And my code always passes in `word_set1` as the hash table (with `word_set2` being passed in as `user_data`).
 
-But `word_set1` is sometimes smaller than `word_set2`. This means that `g_hash_table_foreach_steal ()` sometimes perform this sort of calculation:
+But `word_set1` is sometimes smaller than `word_set2`. This means that `g_hash_table_foreach_steal ()` sometimes performs this sort of calculation:
 ```c
 WordSet *word_set1;  /* Contains 1000 elements. */
 WordSet *word_set2;  /* Contains 10   elements. */
@@ -53,9 +53,9 @@ for (word : word_set1)
   }
 ```
 
-Clearly, this is inefficient. The point of `word_set_remove_unique ()` is to perform a set intersection on two sets. It's only an implementation decision to do this by removing the elements from the first set.
+This is clearly inefficient. The point of `word_set_remove_unique ()` is to calculate the intersection of two sets. It's only an implementation detail that it does this by removing the elements from the first set.
 
-`word_set_remove_unique ()` could also work by removing the unique elements from the second set. And in the case where `word_set1` is much larger than `word_set2`, it makes more sense to do that---It could be the difference between calling `g_hash_table_contains ()` (and potentially `g_hash_table_remove ()`) 10 times and calling it 1000 times.
+`word_set_remove_unique ()` could also work by removing the unique elements from the second set. And in the case where `word_set1` is much larger than `word_set2`, it makes more sense to do that. It could be the difference between calling `g_hash_table_contains ()` (and potentially `g_hash_table_remove ()`) 10 times and calling it 1000 times.
 
 So, I thought, there's a better implementation for this function:
 1. Figure out which word set is larger.
