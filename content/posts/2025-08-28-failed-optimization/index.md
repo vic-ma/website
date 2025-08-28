@@ -3,7 +3,6 @@ title      = 'When is an optimization not optimal?'
 date       = '2025-08-28'
 slug       = 'gsoc-7'
 categories = ['GSoC']
-draft      = true
 +++
 
 In the past few weeks, I've been working on the MR for my lookahead algorithm. And now, [it's finally merged](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/273)! There's still some more work to be done---particularly around the testing code---but the core change is finished, and is live.
@@ -105,27 +104,9 @@ word_list_find_intersection():
     Total time spent in this function (300.163f ms)
 ``` 
 
-And when I compared the results of the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" version performed either worse or about the same.
-
-This didn't make sense to me. The only additional overhead I added was the size check and pointer swapping, along with some memory management from the calling code (my lookahead function):
-```c
-/* The code that calls word_set_remove_unique (). */
-swapped = word_set_remove_unique (&clue_matches_set,
-                                  &intersection_word_set);
-if (swapped)
-  {
-    word_array_unref (initial_word_array);
-    initial_word_array = intersection_word_array;
-  }
-else
-  {
-    word_array_unref (intersection_word_array);
-  }
-```
-
-Maybe I messed up the implementation somewhere. But in any case, that just goes to show the value of profiling!
+And when I compared the results of the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" version performed either worse or about the same. That just goes to show the value of profiling!
 
 
 ## More testing needed
 
-So...that was going to be the blog post. An optimization that turned out to not be so optimal. But in writing this post, I reimplemented the optimization---I lost the original code, because I never committed it---and that is the code that you see. So maybe I did mess up the implemention last time. In any case, more testing is needed!
+So...that was going to be the blog post. An optimization that turned out to not be so optimal. But in writing this post, I reimplemented the optimization---I lost the original code, because I never committed it---and that is the code that you see. But when I tested this code, it seems like it is performing better than the unoptimized version. So maybe I messed up the implementation last time? In any case, more testing is needed!
