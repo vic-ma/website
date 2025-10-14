@@ -6,13 +6,13 @@ categories = ['GSoC']
 draft      = true
 +++
 
-In the past few weeks, I've been working on improving some test code that I had written.
+In the past few weeks, I've been working on improving some test that I had written.
 
 ## Refactoring time!
 
-The first order of business was to refactor the tests. There was a lot of boilerplate code, which created visual clutter and made it difficult to add new test cases.
+The first order of business was to refactor the tests. There was a lot of boilerplate code, which made it difficult to add new tests and created visual clutter.
 
-For example, take a look at this test:
+For example, take a look at this test case:
 ```c
 static void
 test_egg_ipuz (void)
@@ -49,9 +49,9 @@ That's an awful lot of code just to say:
 1. Find clue matches for the 2-Across clue.
 1. Assert that the results are `["EGGS", "EGGO", "EGGY"]`.
 
-I had a few more test cases like it, and I wanted to add way more. So, I knew that I had to refactor everything.
+So, before adding any new tests, I knew that I had to refactor everything first.
 
-### What I did
+### Functions and fixtures
 
 I first did two things to remove most of the boilerplate code:
 1. Add a test fixture that extracts the test setup code.
@@ -72,7 +72,9 @@ test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
 
 This was a lot better, but I knew that I could take it even further with macro functions.
 
-I made one for the test case definitions:
+### Macro functions
+
+I made a macro function for the test case definitions:
 ```c
 define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)           \
   test_clue_matches (fixture->word_list,                    \
@@ -148,3 +150,7 @@ So, this was the fix:
    g_autoptr (WordArray) clue_matches = NULL;
    g_autoptr (WordArray) expected_word_array = NULL;
 ```
+
+## More tests
+
+Then, with that done, I went on to add some more tests. 
