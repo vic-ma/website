@@ -135,5 +135,16 @@ Rats.
 
 And what's more, it's only the Flatpak job's test run that fails. The native job's test run works fine. What could possibly be the cause of this?
 
-I'll spare you details, but in the end, I found out that the bug came from me accidentally freeing an object before it was done being used:
+I'll spare you details, but in the end, I found out that the bug came from me accidentally freeing an object before it was done being used.
 
+So, this was the fix:
+```diff
+@@ -94,7 +94,7 @@ test_clue_matches (WordList *word_list,
+                    guint clue_index,
+                    const gchar *expected_words[])
+ {
+-  g_autofree IpuzClue *clue = NULL;
++  const IpuzClue *clue = NULL;
+   g_autoptr (WordArray) clue_matches = NULL;
+   g_autoptr (WordArray) expected_word_array = NULL;
+```
