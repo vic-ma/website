@@ -51,4 +51,25 @@ That's an awful lot of code just to say:
 
 I had a few more test cases like it, and I wanted to add way more. So, I knew that I had to refactor everything.
 
-### Use a `Fixture`
+I first did two things to remove most of the boilerplate code:
+1. Add a test fixture, to extract the test setup code.
+1. Add an assertion function, to extract the assertion code.
+
+This is what the test case looked like afterward:
+```c
+static void
+test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
+{
+  test_clue_matches (fixture->word_list,
+                     fixture->grid,
+                     IPUZ_CLUE_DIRECTION_ACROSS,
+                     2,
+                     (const gchar*[]){"EGGS", "EGGO", "EGGY", NULL});
+}
+
+This was a lot better, but I knew that I could take it even further with macro functions.
+
+I did one for the test case definitions:
+```c
+
+```
