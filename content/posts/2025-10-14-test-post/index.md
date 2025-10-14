@@ -135,4 +135,5 @@ Rats.
 
 And what's more, it's only the Flatpak job's test run that fails. The native job's test run works fine. What could possibly be the cause of this?
 
-I'll spare you gory details it took me to this point, but in the end, I found out that the bug came from me accidentally freeing an object before it was done being used:
+I'll spare you details, but in the end, I found out that the bug came from me accidentally freeing an object before it was done being used:
+
