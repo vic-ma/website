@@ -191,11 +191,11 @@ ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 
 ## An unfortunate bug
 
-Now, picture this: You've just finished refactoring your test code. You make some finishing touches, do a final test run, look over your diff one last time...and everything looks good, so you open and MR for it.
+Now, picture this: You've just finished refactoring your test code. You add some finishing touches, do a final test run, look over your diff one last time...and everything looks good. So, you open up an MR and wait for a review.
 
-And then the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. You run them again, just to double check, and yup, they still pass.
+But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. So you run the tests locally once again, just to be sure...and yup, they still pass.
 
-So...what then? A sporadic CI test failure? Well, let's just try re-running the pipeline and see what happens.
+So...what then? A sporadic CI test failure? A cosmic bit flip? Well, let's just try re-running the pipeline and see what happens.
 
 ...
 
