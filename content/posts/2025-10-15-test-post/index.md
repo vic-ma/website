@@ -1,12 +1,12 @@
 +++
 title      = 'This is a test post'
-date       = '2025-10-14'
+date       = '2025-10-15'
 slug       = 'gsoc-8'
 categories = ['GSoC']
 draft      = true
 +++
 
-In the past few weeks, I've been improving some test code that I had written.
+In the past few weeks, I've been working on improving some test code that I had written.
 
 ## Refactoring time!
 

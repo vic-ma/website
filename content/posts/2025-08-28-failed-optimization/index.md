@@ -102,7 +102,7 @@ word_list_find_intersection():
     Longest time (4.651 ms)
     Total iterations (388)
     Total time spent in this function (300.163f ms)
-``` 
+```
 
 And when I compared the results of the optimized and unoptimized `word_set_remove_unique ()`, it turned out that the "optimized" version performed either worse or about the same. That just goes to show the value of profiling!
 

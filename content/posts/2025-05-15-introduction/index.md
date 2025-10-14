@@ -29,7 +29,7 @@ To learn more about GNOME Crosswords, check out this [GUADEC presentation](https
 
 Constructing a crossword puzzle is tricky. Constructing a *good* crossword puzzle is even trickier. The main difficulty lies in finding the right words to fill the grid.
 
-Initially, it's quite easy. The grid starts off completely empty, so the first few words that you add don't have any restrictions on them (apart from word length). But as you fill the grid with more and more words, it becomes increasingly difficult to find words to fill the remaining rows/columns. That's because a remaining row, for example, will have a few of its cells already filled in by the words in the intersecting columns. This restricts the list of possible words for that row. 
+Initially, it's quite easy. The grid starts off completely empty, so the first few words that you add don't have any restrictions on them (apart from word length). But as you fill the grid with more and more words, it becomes increasingly difficult to find words to fill the remaining rows/columns. That's because a remaining row, for example, will have a few of its cells already filled in by the words in the intersecting columns. This restricts the list of possible words for that row.
 
 Something you can run into is that halfway through the construction process, you realize that one or more rows/columns cannot be filled at all, because no word meets the constraints imposed on it by the prefilled cells! In that case, you would need to backtrack and delete some of the intersecting words and try again. Of course, trying to replace a word could lead to other words on the grid needing to be replaced too---so you can get a domino effect of groups of rows/columns on the grid needing to be redone!
 

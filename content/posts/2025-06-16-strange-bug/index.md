@@ -9,7 +9,7 @@ draft      = false
 
 In the last two weeks, I've been trying to fix a [strange bug](https://gitlab.gnome.org/jrb/crosswords/-/issues/269) that causes the word suggestions list to have the wrong order sometimes.
 
-For example, suppose you have an empty 3x3 grid. Now suppose that you move your cursor to each of the cells of the 1-Across slot (labelled `α`, `β`, and `γ`). 
+For example, suppose you have an empty 3x3 grid. Now suppose that you move your cursor to each of the cells of the 1-Across slot (labelled `α`, `β`, and `γ`).
 ```
 +---+---+---+
 | α | β | γ |
