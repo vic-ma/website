@@ -6,13 +6,13 @@ categories = ['GSoC']
 draft      = true
 +++
 
-In the past few weeks, I've been working on improving some test that I had written.
+Over the past few weeks, I've been working on improving some test code that I had written.
 
 ## Refactoring time!
 
-The first order of business was to refactor the tests. There was a lot of boilerplate code, which made it difficult to add new tests and created visual clutter.
+My first order of business was to refactor the test code. There was a lot of boilerplate, which made it difficult to add new tests, and also created visual clutter.
 
-For example, take a look at this test case:
+For example, have a look at this test case:
 ```c
 static void
 test_egg_ipuz (void)
@@ -49,7 +49,7 @@ That's an awful lot of code just to say:
 1. Run the `word_list_find_clue_matches()` function on the 2-Across clue.
 1. Assert that the results are `["EGGS", "EGGO", "EGGY"]`.
 
-So, before adding any new tests, I knew that I had to first refactor my code.
+And this was repeated in every test case, and needed to be repeated in every new test case I added. So, I knew that I had to refactor my code.
 
 ### Fixtures and functions
 
