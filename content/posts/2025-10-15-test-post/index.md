@@ -207,11 +207,11 @@ Rats.
 
 And what's more, it's only the Flatpak job's test run that fails. The native job's test run works fine. What could possibly be the cause of this?
 
-Well, I'll spare you the gory details that it took for me to get to the answer. But the cause of the bug was me accidentally freeing an object that I should not have freed.
+Well, I'll spare you the gory details that it took for me to get to the answer. But the cause of the bug was me accidentally freeing an object that I should never have freed.
 
-This meant that the corresponding memory segment *could be* but *did not necessarily have to be* filled with garbage data. This is why only the Flatpak job's test run failed, at first. This made it very tricky to debug. I did eventually get the native job's test run and local test runs to fail as well. And that is what clued me into the true cause of this bug.
+This meant that the corresponding memory segment *could be*---but, crucially, *did not necessarily have to be*---filled with garbage data. And this is why only the Flatpak job's test run failed...well, at first, anyway. By changing around some of the test cases, I was able to get the native job's test run and local test runs to fail. And that is what eventually clued me in to the true nature of this bug.
 
-So, this was the fix:
+So, after the better part of two weeks, this was the fix:
 ```diff
 @@ -94,7 +94,7 @@ test_clue_matches (WordList *word_list,
                     guint clue_index,
