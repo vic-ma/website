@@ -10,7 +10,7 @@ In the past few weeks, I've been improving some test code that I had written.
 
 ## Refactoring time!
 
-The first order of business was to refactor the tests. There was a lot of boilerplate code, which created visual clutter and made it tedious to add new test cases.
+The first order of business was to refactor the tests. There was a lot of boilerplate code, which created visual clutter and made it difficult to add new test cases.
 
 For example, take a look at this test:
 ```c
@@ -52,8 +52,8 @@ That's an awful lot of code just to say:
 I had a few more test cases like it, and I wanted to add way more. So, I knew that I had to refactor everything.
 
 I first did two things to remove most of the boilerplate code:
-1. Add a test fixture, to extract the test setup code.
-1. Add an assertion function, to extract the assertion code.
+1. Add a test fixture that extracts the test setup code.
+1. Add an helper function that extracts the assertion code.
 
 This is what the test case looked like afterward:
 ```c
@@ -71,7 +71,7 @@ This was a lot better, but I knew that I could take it even further with macro f
 
 I made one for the test case definitions:
 ```c
-define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)          \
+define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)           \
   test_clue_matches (fixture->word_list,                    \
                      fixture->grid,                         \
                      DIRECTION,                             \
@@ -90,7 +90,6 @@ test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
 
 I also made a macro function for the test case declarations:
 ```c
-
 #define ADD_IPUZ_TEST(test_name, file_name)     \
   g_test_add ("/clue_matches/" #test_name,      \
               Fixture,                          \
