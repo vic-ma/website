@@ -12,7 +12,7 @@ In the past few weeks, I've been improving some test code that I had written.
 
 The first order of business was to refactor the tests. There was a lot of boilerplate code, which created visual clutter and made it tedious to add new test cases.
 
-For example, take a look at this test case:
+For example, take a look at this test:
 ```c
 static void
 test_egg_ipuz (void)
@@ -44,9 +44,11 @@ test_egg_ipuz (void)
     "EGGY");
 }
 ```
-I had a few more test cases like this, and I wanted to add even more. It was annoying having to write all that code, just to say:
+That's an awful lot of code just to say:
 1. Use the `EGG_IPUZ_FILE_PATH` file.
 1. Find clue matches for the 2-Across clue.
 1. Assert that the results are `["EGGS", "EGGO", "EGGY"]`.
-So I knew I had to refactor everything.
 
+I had a few more test cases like it, and I wanted to add way more. So, I knew that I had to refactor everything.
+
+### Use a `Fixture`
