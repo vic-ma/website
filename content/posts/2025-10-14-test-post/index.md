@@ -51,6 +51,8 @@ That's an awful lot of code just to say:
 
 I had a few more test cases like it, and I wanted to add way more. So, I knew that I had to refactor everything.
 
+### What I did
+
 I first did two things to remove most of the boilerplate code:
 1. Add a test fixture that extracts the test setup code.
 1. Add an helper function that extracts the assertion code.
@@ -66,6 +68,7 @@ test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
                      2,
                      (const gchar*[]){"EGGS", "EGGO", "EGGY", NULL});
 }
+```
 
 This was a lot better, but I knew that I could take it even further with macro functions.
 
@@ -113,3 +116,23 @@ Into this:
 ```c
 ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 ```
+
+## An unfortunate bug
+
+Now, picture this: you just finished refactoring your test code. You fix some style issues, do a final test run, check over of your diff one last time...and everything looks good, so you open and MR for it.
+
+And then the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. You run them again, just to double check, and yup, they still pass.
+
+So...what then? A sporadic CI test failure? Well, let's just try re-running the pipeline and see what happens.
+
+...
+
+Nope. Still fails.
+
+...
+
+Rats.
+
+And what's more, it's only the Flatpak job's test run that fails. The native job's test run works fine. What could possibly be the cause of this?
+
+I'll spare you gory details it took me to this point, but in the end, I found out that the bug came from me accidentally freeing an object before it was done being used:
