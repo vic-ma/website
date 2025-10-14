@@ -144,7 +144,7 @@ Much better!
 
 ### Macro functions
 
-But as great as that was, I knew that I could take it one step further with macro functions.
+But as great as that was, I knew that I could take it even further, with macro functions.
 
 I created a macro function to simplify test case definitions:
 ```c
@@ -193,7 +193,7 @@ ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 
 ## An unfortunate bug
 
-Now, picture this: You've just finished refactoring your test code. You add some finishing touches, do a final test run, look over your diff one last time...and everything looks good. So, you open up an MR and wait for a review.
+Picture this: You've just finished refactoring your test code. You add some finishing touches, do a final test run, look over your diff one last time...and everything looks good. So, you open up an MR and wait for a review.
 
 But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. So you run the tests locally once again, just to be sure...and yup, they still pass.
 
