@@ -140,13 +140,13 @@ test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
 }
 ```
 
-This was a lot better, but I knew that I could take it even further with macro functions.
-
 ### Macro functions
+
+That was a lot better, but I knew that I could take it one step further with macro functions.
 
 I made a macro function for the test case definitions:
 ```c
-define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)           \
+#define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)          \
   test_clue_matches (fixture->word_list,                    \
                      fixture->grid,                         \
                      DIRECTION,                             \
@@ -191,7 +191,7 @@ ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 
 ## An unfortunate bug
 
-Now, picture this: you just finished refactoring your test code. You fix some style issues, do a final test run, check over of your diff one last time...and everything looks good, so you open and MR for it.
+Now, picture this: You've just finished refactoring your test code. You make some finishing touches, do a final test run, look over your diff one last time...and everything looks good, so you open and MR for it.
 
 And then the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. You run them again, just to double check, and yup, they still pass.
 
