@@ -53,7 +53,7 @@ And this was repeated in every test case, and needed to be repeated in every new
 
 ### Fixtures and functions
 
-My first step was to extract all of this setup code, which was repeated at the start of each test case:
+My first step was to extract all of this setup code:
 ```c
 g_autoptr (WordList) word_list = NULL;
 IpuzGrid *grid;
@@ -87,7 +87,7 @@ static void fixture_tear_down (Fixture *fixture, gconstpointer user_data)
 }
 ```
 
-Next, I wanted to extract all of this assertion code:
+My next step was to extract all of this assertion code:
 ```c
 g_assert_cmpint (word_array_len (clue_matches), ==, 3);
 g_assert_cmpstr (word_list_get_indexed_word (word_list,
@@ -106,7 +106,7 @@ g_assert_cmpstr (
   "EGGY");
 ```
 
-To do this, I created a function that runs `word_list_find_clue_matches()` and asserts that the result equals an `expected_words` array that I pass in.
+To do this, I created a new function that runs `word_list_find_clue_matches()` and asserts that the result equals an `expected_words` parameter.
 ```c
 static void
 test_clue_matches (WordList *word_list,
@@ -138,13 +138,15 @@ test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
                      2,
                      (const gchar*[]){"EGGS", "EGGO", "EGGY", NULL});
 }
+
 ```
+Much better!
 
 ### Macro functions
 
-That was a lot better, but I knew that I could take it one step further with macro functions.
+But as great as that was, I knew that I could take it one step further with macro functions.
 
-I made a macro function for the test case definitions:
+I created a macro function to simplify test case definitions:
 ```c
 #define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)          \
   test_clue_matches (fixture->word_list,                    \
@@ -154,7 +156,7 @@ I made a macro function for the test case definitions:
                      (const gchar*[]){__VA_ARGS__, NULL})
 ```
 
-Which turned the `test_egg_ipuz` test case definition into this:
+Now, `test_egg_ipuz()` looked like this:
 ```c
 static void
 test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
