@@ -46,18 +46,88 @@ test_egg_ipuz (void)
 ```
 That's an awful lot of code just to say:
 1. Use the `EGG_IPUZ_FILE_PATH` file.
-1. Find clue matches for the 2-Across clue.
+1. Run the `word_list_find_clue_matches()` function on the 2-Across clue.
 1. Assert that the results are `["EGGS", "EGGO", "EGGY"]`.
 
-So, before adding any new tests, I knew that I had to refactor everything first.
+So, before adding any new tests, I knew that I had to first refactor my code.
 
-### Functions and fixtures
+### Fixtures and functions
 
-I first did two things to remove most of the boilerplate code:
-1. Add a test fixture that extracts the test setup code.
-1. Add an helper function that extracts the assertion code.
+My first step was to extract all of this setup code, which was repeated at the start of each test case:
+```c
+g_autoptr (WordList) word_list = NULL;
+IpuzGrid *grid;
+g_autofree IpuzClue *clue = NULL;
+g_autoptr (WordArray) clue_matches = NULL;
 
-This is what the test case looked like afterward:
+word_list = get_broda_word_list ();
+grid = create_grid (EGG_IPUZ_FILE_PATH);
+clue = get_clue (grid, IPUZ_CLUE_DIRECTION_ACROSS, 2);
+clue_matches = word_list_find_clue_matches (word_list, clue, grid);
+```
+
+To do this, I used a fixture:
+```c
+typedef struct {
+  WordList *word_list;
+  IpuzGrid *grid;
+} Fixture;
+
+static void fixture_set_up (Fixture *fixture, gconstpointer user_data)
+{
+  const gchar *ipuz_file_path = (const gchar *) user_data;
+
+  fixture->word_list = get_broda_word_list ();
+  fixture->grid = create_grid (ipuz_file_path);
+}
+
+static void fixture_tear_down (Fixture *fixture, gconstpointer user_data)
+{
+  g_object_unref (fixture->word_list);
+}
+```
+
+Next, I wanted to extract all of this assertion code:
+```c
+g_assert_cmpint (word_array_len (clue_matches), ==, 3);
+g_assert_cmpstr (word_list_get_indexed_word (word_list,
+                              word_array_index (clue_matches, 0)),
+                 ==,
+                 "EGGS");
+g_assert_cmpstr (
+  word_list_get_indexed_word (word_list,
+                              word_array_index (clue_matches, 1)),
+  ==,
+  "EGGO");
+g_assert_cmpstr (
+  word_list_get_indexed_word (word_list,
+                              word_array_index (clue_matches, 2)),
+  ==,
+  "EGGY");
+```
+
+To do this, I created a function that runs `word_list_find_clue_matches()` and asserts that the result equals an `expected_words` array that I pass in.
+```c
+static void
+test_clue_matches (WordList *word_list,
+                   IpuzGrid *grid,
+                   IpuzClueDirection clue_direction,
+                   guint clue_index,
+                   const gchar *expected_words[])
+{
+  const IpuzClue *clue = NULL;
+  g_autoptr (WordArray) clue_matches = NULL;
+  g_autoptr (WordArray) expected_word_array = NULL;
+
+  clue = get_clue (grid, clue_direction, clue_index);
+  clue_matches = word_list_find_clue_matches (word_list, clue, grid);
+  expected_word_array = str_array_to_word_array (expected_words, word_list);
+
+  g_assert_true (word_array_equals (clue_matches, expected_word_array));
+}
+```
+
+After all that, here's what my test case looked like:
 ```c
 static void
 test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
@@ -84,7 +154,7 @@ define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)           \
                      (const gchar*[]){__VA_ARGS__, NULL})
 ```
 
-Which turned the `test_egg_ipuz` test case into this:
+Which turned the `test_egg_ipuz` test case definition into this:
 ```c
 static void
 test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
