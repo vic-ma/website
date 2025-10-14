@@ -195,7 +195,7 @@ Now, picture this: You've just finished refactoring your test code. You add some
 
 But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. So you run the tests locally once again, just to be sure...and yup, they still pass.
 
-So...what then? A sporadic CI test failure? A cosmic bit flip? Well, let's just try re-running the pipeline and see what happens.
+So...what then? A sporadic test failure? A cosmic bit flip? Well, let's just try running the CI pipeline again and see what happens. Maybe the problem will go away.
 
 ...
 
@@ -207,7 +207,9 @@ Rats.
 
 And what's more, it's only the Flatpak job's test run that fails. The native job's test run works fine. What could possibly be the cause of this?
 
-I'll spare you details, but in the end, I found out that the bug came from me accidentally freeing an object before it was done being used.
+Well, I'll spare you the gory details that it took for me to get to the answer. But the cause of the bug was me accidentally freeing an object that I should not have freed.
+
+This meant that the corresponding memory segment *could be* but *did not necessarily have to be* filled with garbage data. This is why only the Flatpak job's test run failed, at first. This made it very tricky to debug. I did eventually get the native job's test run and local test runs to fail as well. And that is what clued me into the true cause of this bug.
 
 So, this was the fix:
 ```diff
@@ -220,7 +222,3 @@ So, this was the fix:
    g_autoptr (WordArray) clue_matches = NULL;
    g_autoptr (WordArray) expected_word_array = NULL;
 ```
-
-## More tests
-
-Then, with that done, I went on to add some more tests. 
