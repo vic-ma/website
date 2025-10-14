@@ -69,7 +69,48 @@ test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
 
 This was a lot better, but I knew that I could take it even further with macro functions.
 
-I did one for the test case definitions:
+I made one for the test case definitions:
+```c
+define ASSERT_CLUE_MATCHES(DIRECTION, INDEX, ...)          \
+  test_clue_matches (fixture->word_list,                    \
+                     fixture->grid,                         \
+                     DIRECTION,                             \
+                     INDEX,                                 \
+                     (const gchar*[]){__VA_ARGS__, NULL})
+```
+
+Which turned the `test_egg_ipuz` test case into this:
+```c
+static void
+test_egg_ipuz (Fixture *fixture, gconstpointer user_data)
+{
+  ASSERT_CLUE_MATCHES (IPUZ_CLUE_DIRECTION_ACROSS, 2, "EGGS", "EGGO", "EGGY");
+}
+```
+
+I also made a macro function for the test case declarations:
 ```c
 
+#define ADD_IPUZ_TEST(test_name, file_name)     \
+  g_test_add ("/clue_matches/" #test_name,      \
+              Fixture,                          \
+              "tests/clue-matches/" #file_name, \
+              fixture_set_up,                   \
+              test_name,                        \
+              fixture_tear_down)
+```
+
+Which turned this:
+```c
+g_test_add ("/clue_matches/test_egg_ipuz",
+            Fixture,
+            EGG_IPUZ,
+            fixture_set_up,
+            test_egg_ipuz,
+            fixture_tear_down);
+```
+
+Into this:
+```c
+ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 ```
