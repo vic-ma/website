@@ -193,11 +193,11 @@ ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 
 ## An unfortunate bug
 
-Picture this: You've just finished refactoring your test code. You add some finishing touches, do a final test run, look over your diff one last time...and everything looks good. So, you open up an MR and wait for a review.
+So picture this: You've just finished refactoring your test code. You add some finishing touches, do a final test run, look over your diff one last time...and everything looks good. So, you open up an MR and wait for a review.
 
-But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. So you run the tests locally once again, just to be sure...and yup, they still pass.
+But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything went fine. (You run them again just to be sure, and yup, they still work.) And what's more, it's only the Flatpak CI tests that fails. The *native CI tests* passed just fine.
 
-So...what then? A sporadic test failure? A cosmic bit flip? Well, let's just try running the CI pipeline again and see what happens. Maybe the problem will go away.
+So...what, then? Well, let's just try running the CI pipeline again and see what happens. Maybe the problem will go away.
 
 ...
 
@@ -206,8 +206,6 @@ Nope. Still fails.
 ...
 
 Rats.
-
-And what's more, it's only the Flatpak job's test run that fails. The native job's test run works fine. What could possibly be the cause of this?
 
 Well, I'll spare you the gory details that it took for me to get to the answer. But the cause of the bug was me accidentally freeing an object that I should never have freed.
 
