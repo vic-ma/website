@@ -3,7 +3,6 @@ title      = 'This is a test post'
 date       = '2025-10-15'
 slug       = 'gsoc-8'
 categories = ['GSoC']
-draft      = true
 +++
 
 Over the past few weeks, I've been working on improving some test code that I had written.
@@ -207,11 +206,11 @@ Nope. Still fails.
 
 Rats.
 
-Well, I'll spare you the gory details that it took for me to get to the answer. But the cause of the bug was me accidentally freeing an object that I should never have freed.
+Well, I'll spare you the gory details that it took for me to finally figure this one out. But the cause of the bug was me accidentally freeing an object that I should never have freed.
 
-This meant that the corresponding memory segment *could be*---but, crucially, *did not necessarily have to be*---filled with garbage data. And this is why only the Flatpak job's test run failed...well, at first, anyway. By changing around some of the test cases, I was able to get the native job's test run and local test runs to fail. And that is what eventually clued me in to the true nature of this bug.
+This meant that the corresponding memory segment *could be*---but, importantly, *did not necessarily have to be*---filled with garbage data. And this is why only the Flatpak job's test run failed...well, at first, anyway. By changing around some of the test cases, I was able to get the native CI tests and local tests to fail. And this is what eventually clued me into the true nature of this bug.
 
-So, after the better part of two weeks, this was the fix:
+So, after spending the better part of two weeks, here is the fix I ended up with:
 ```diff
 @@ -94,7 +94,7 @@ test_clue_matches (WordList *word_list,
                     guint clue_index,
