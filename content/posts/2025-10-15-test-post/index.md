@@ -195,9 +195,9 @@ ADD_IPUZ_TEST (test_egg_ipuz, egg.ipuz);
 
 So, picture this: You've just finished refactoring your test code. You add some finishing touches, do a final test run, look over the diff one last time...and everything seems good. So, you open up an MR and start working on other things.
 
-But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything worked just fine. (You run them again just to be sure, and yup, they still pass.) And what's more, it's only the Flatpak CI tests that fails. The *native* CI tests succeeded.
+But then, the unthinkable happens---the CI pipeline fails! And apparently, it's due to a test failure? But you ran your tests locally, and everything worked just fine. (You run them again just to be sure, and yup, they still pass.) And what's more, it's only the Flatpak CI tests that failed. The *native* CI tests succeeded.
 
-So...what, then? How do you even begin debugging something like this, where the test failure only happens in a single CI job? Well, let's just try running the CI pipeline again and see what happens. Maybe the problem will go away. Hopefully the problem goes away.
+So...what, then? What could be the cause of this? I mean, how do you even begin debugging a test failure that only happens in a particular CI job and nowhere else? Well, let's just try running the CI pipeline again and see what happens. Maybe the problem will go away. Hopefully, the problem goes away.
 
 ...
 
