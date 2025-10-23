@@ -5,7 +5,7 @@ slug       = 'gsoc-6'
 categories = ['GSoC']
 +++
 
-In the last two weeks, I've been working on my lookahead-based word suggestion algorithm. And it's finally functional! There's still a lot more work to be done, but it's great to see that the [original problem](http://localhost:1313/posts/gsoc-5/#design-doc) I set out to solve is now solved by my new algorithm.
+In the last two weeks, I've been working on my lookahead-based word suggestion algorithm. And it's finally functional! There's still a lot more work to be done, but it's great to see that the [original problem](/posts/gsoc-5/#design-doc) I set out to solve is now solved by my new algorithm.
 
 
 ## Without my changes
