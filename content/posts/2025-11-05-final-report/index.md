@@ -20,6 +20,10 @@ As part of this project, I also researched the field of constraint satisfaction 
 I also performed a competitive analysis of other crossword editors on the market and wrote a detailed report, to help identify missing features and guide future development.
 
 
+<!-- ## Project links -->
+
+
+
 ## Word suggestion algorithm improvements
 
 
