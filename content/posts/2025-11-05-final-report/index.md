@@ -26,7 +26,7 @@ Here are links to the things that I worked on.
 
 ### Merge requests
 
-MRs related to the word suggestion algorithm:
+Merge requests related to the word suggestion algorithm:
 1. [Improve word suggestion algorithm](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/273)
 1. [Add `word-list-tests-utils.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/286)
 1. [Refactor `clue-matches-tests.c` by using a fixture](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/295)
@@ -39,7 +39,7 @@ MRs related to the word suggestion algorithm:
 1. [Make phase 3 of `word_list_find_intersection()` optional`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/317)
 1. [Improve print functions for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/320)
 
-Other MRs:
+Other merge requests:
 1. [Fix and refactor editor puzzle import](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/211)
 1. [Add MIME sniffing to downloader](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/225)
 1. [Add support for remaining divided cell types in `svg.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/227)
