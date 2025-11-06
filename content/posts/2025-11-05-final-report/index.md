@@ -56,10 +56,16 @@ that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
 cell.
 
+Now, suppose that the current slot is 4-Across. Then, the basic word suggestion algorithm cannot detect the fact that the slot is unfillable. After all, the algorithm only looks at the current slot---it does not know about 4-Down.
+
 
 ### Our word suggestion algorithm
 
-The word suggestion algorithm that we had was a bit more advanced than this, but not by much. Our algorithm found words that match the current slot *and* the intersecting slot at the current cell.
+The word suggestion algorithm that we had was a bit more advanced than this basic algorithm, but not by much. Our algorithm considered two constraints:
+* The current slot (size and any letters).
+* The intersecting slot at the current cell (size and any letters).
+
+What this means is that if the current slot is 4-Across and the cursor is on the rightmost cell of 4-Across, then our algorithm correctly identified the slot as unfillable. This is because it considered both
 
 However, our editor's word suggestion algorithm did not handle this grid properly. Our algorithm only considered the constraint imposed by the current slot and the intersecting slot at the current cell. So if the current cell is the bottom-right cell, then our algorithm correctly handled the grid. But if the current cell is any of the other cells, then the algorithm did not correctly handle the grid. The algorithm generated words like *WORD* and *WORM*, even though those words do not actually fit in the slot, because they cause 4-Down to become a nonsense word.
 
