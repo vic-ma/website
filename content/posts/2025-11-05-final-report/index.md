@@ -61,13 +61,9 @@ Now, suppose that the current slot is 4-Across. Then, the basic word suggestion 
 
 ### Our word suggestion algorithm
 
-The word suggestion algorithm that we had was a bit more advanced than this basic algorithm, but not by much. Our algorithm considered two constraints:
-* The current slot (size and any letters).
-* The intersecting slot at the current cell (size and any letters).
+The word suggestion algorithm that we had was a bit more advanced than this basic algorithm, but not by much. So it meant that it could not handle that problematic grid properly. It suggests words like *WORD* and *WORM*, even though they do not actually fit in the slot, because they would cause 4-Down to become a nonsense word.
 
-What this means is that if the current slot is 4-Across and the cursor is on the rightmost cell of 4-Across, then our algorithm correctly identified the slot as unfillable. But if the cursor was on any other of the cells, say the first cell, then our algorithm did not identify the slot as unfillable:
-
-<!-- ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png) -->
+![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
 
 ### The fix
