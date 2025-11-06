@@ -22,6 +22,8 @@ I also performed a competitive analysis of other crossword editors on the market
 
 ## Project links
 
+Here are links to the things I worked on.
+
 ### Merge requests
 
 * [Improve print functions for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/320)
