@@ -68,15 +68,14 @@ The word suggestion algorithm that we had was a bit more advanced than this basi
 
 ### The fix
 
-<!-- ![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png) -->
+To fix this, I reimplemented our word suggestion algorithm as a forward-checking algorithm. Now, our algorithm considers the constraints imposed by the current slot as well as every intersecting slot.
+
+![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
+
+
+## Constraint satisfaction problems research
 
 
 
 
-
-
-
-<!-- ## Constraint satisfaction problem research -->
-
-
-<!-- ## Competitive analysis -->
+## Competitive analysis
