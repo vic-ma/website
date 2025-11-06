@@ -1,5 +1,5 @@
 +++
-title      = 'Google Summer of Code 2025 final report'
+title      = 'Google Summer of Code final report'
 date       = '2000-11-06'
 slug       = 'gsoc-9'
 categories = ['GSoC']
@@ -54,7 +54,11 @@ cell.
 
 However, our editor's word suggestion algorithm did not handle this grid properly. Our algorithm only considered the constraint imposed by the current slot and the intersecting slot at the current cell. So if the current cell is the bottom-right cell, then our algorithm correctly handled the grid. But if the current cell is any of the other cells, then the algorithm did not correctly handle the grid. The algorithm generated words like *WORD* and *WORM*, even though those words do not actually fit in the slot, because they cause 4-Down to become a nonsense word.
 
+![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
+### The fix
+
+![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
 
 
 
