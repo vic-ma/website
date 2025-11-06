@@ -49,7 +49,11 @@ Other merge requests:
 
 ### Design documents
 
+[Work in progress.](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/338)
+
 ### Miscellaneous documents
+
+
 
 ### Blog posts
 
