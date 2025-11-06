@@ -32,7 +32,7 @@ I also performed a competitive analysis of other crossword editors on the market
 * [Add more tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/312)
 * [Add a macro to simplify the `test_clue_matches` calls](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/310)
 * [Improve `word_array_print()`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/309)
-* [Add macro to reduce boilerplate code in `clue-matches-tests.c...`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/307)
+* [Add macro to reduce boilerplate code in `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/307)
 * [Use better test assert macros](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/296)
 * [Refactor `clue-matches-tests.c` by using a fixture](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/295)
 * [Add `word-list-tests-utils.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/286)
