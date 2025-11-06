@@ -52,7 +52,7 @@ that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
 cell.
 
-However, our editor's word suggestion algorithm did not handle this grid properly.
+However, our editor's word suggestion algorithm did not handle this grid properly. Our algorithm only considered the constraint imposed by the current slot and the intersecting slot at the current cell. So if the current cell is the bottom-right cell, then our algorithm correctly handled the grid. But if the current cell is any of the other cells, then the algorithm did not correctly handle the grid. The algorithm generated words like *WORD* and *WORM*, even though those words do not actually fit in the slot, because they cause 4-Down to become a nonsense word.
 
 
 
