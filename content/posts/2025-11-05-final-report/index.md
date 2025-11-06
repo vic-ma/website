@@ -20,6 +20,67 @@ As part of this project, I also researched the field of constraint satisfaction 
 I also performed a competitive analysis of other crossword editors on the market and wrote a detailed report, to help identify missing features and guide future development.
 
 
+
+### Journal
+
+I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
+
+## Word suggestion algorithm improvements
+
+The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors provides a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png)---a dynamic list of words that fit the current slot. This feature helps the user find words that fit the slots on their grid.
+
+In order to generate the word suggestion list, crossword editors use a *word suggestion algorithm*. The simplest example of a word suggestion algorithm considers two constraints:
+* The size of the current slot.
+* The letters in the current slot.
+
+So for example, if the current slot is `C A _ S`, then this word suggestion algorithm would return all four-letter words that start with *CA* and end in *S*---such as *CATS* or *CABS*, but not *COTS*.
+
+### The problem
+
+There is a problem with this basic word suggestion algorithm, however. Consider the following grid:
+```
++---+---+---+---+
+|   |   |   | Z |
++---+---+---+---+
+|   |   |   | E |
++---+---+---+---+
+|   |   |   | R |
++---+---+---+---+
+| W | O | R |   | < current slot
++---+---+---+---+
+```
+4-Down begins with *ZER*, so the only word it can be is *ZERO*. This constrains
+the bottom-right cell to the letter *O*.
+
+4-Across starts with *WOR*. We know that the bottom-right cell must be *O*, so
+that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
+and 4-Across are both unfillable, because no letter fits in the bottom-right
+cell.
+
+Now, suppose that the current slot is 4-Across. Then, the basic word suggestion algorithm cannot detect the fact that the slot is unfillable. After all, the algorithm only looks at the current slot---it does not know about 4-Down.
+
+
+### Our word suggestion algorithm
+
+The word suggestion algorithm that we had was a bit more advanced than this basic algorithm, but not by much. So it meant that it could not handle that problematic grid properly. It suggests words like *WORD* and *WORM*, even though they do not actually fit in the slot, because they would cause 4-Down to become a nonsense word.
+
+![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
+
+
+### The fix
+
+To fix this, I reimplemented our word suggestion algorithm as a forward-checking algorithm. Now, our algorithm considers the constraints imposed by the current slot as well as every intersecting slot.
+
+![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
+
+
+## Constraint satisfaction problems research
+
+
+
+
+## Competitive analysis
+
 ## Project links
 
 Here are links to the things that I worked on.
@@ -82,63 +143,3 @@ Other:
 1. [It's alive!](http://victorma.ca/posts/gsoc-6/)
 1. [When is an optimization not optimal?](http://victorma.ca/posts/gsoc-7/)
 1. [This is a test post](http://victorma.ca/posts/gsoc-8/)
-
-### Journal
-
-I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
-
-## Word suggestion algorithm improvements
-
-The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors provides a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png)---a dynamic list of words that fit the current slot. This feature helps the user find words that fit the slots on their grid.
-
-In order to generate the word suggestion list, crossword editors use a *word suggestion algorithm*. The simplest example of a word suggestion algorithm considers two constraints:
-* The size of the current slot.
-* The letters in the current slot.
-
-So for example, if the current slot is `C A _ S`, then this word suggestion algorithm would return all four-letter words that start with *CA* and end in *S*---such as *CATS* or *CABS*, but not *COTS*.
-
-### The problem
-
-There is a problem with this basic word suggestion algorithm, however. Consider the following grid:
-```
-+---+---+---+---+
-|   |   |   | Z |
-+---+---+---+---+
-|   |   |   | E |
-+---+---+---+---+
-|   |   |   | R |
-+---+---+---+---+
-| W | O | R |   | < current slot
-+---+---+---+---+
-```
-4-Down begins with *ZER*, so the only word it can be is *ZERO*. This constrains
-the bottom-right cell to the letter *O*.
-
-4-Across starts with *WOR*. We know that the bottom-right cell must be *O*, so
-that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
-and 4-Across are both unfillable, because no letter fits in the bottom-right
-cell.
-
-Now, suppose that the current slot is 4-Across. Then, the basic word suggestion algorithm cannot detect the fact that the slot is unfillable. After all, the algorithm only looks at the current slot---it does not know about 4-Down.
-
-
-### Our word suggestion algorithm
-
-The word suggestion algorithm that we had was a bit more advanced than this basic algorithm, but not by much. So it meant that it could not handle that problematic grid properly. It suggests words like *WORD* and *WORM*, even though they do not actually fit in the slot, because they would cause 4-Down to become a nonsense word.
-
-![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
-
-
-### The fix
-
-To fix this, I reimplemented our word suggestion algorithm as a forward-checking algorithm. Now, our algorithm considers the constraints imposed by the current slot as well as every intersecting slot.
-
-![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
-
-
-## Constraint satisfaction problems research
-
-
-
-
-## Competitive analysis
