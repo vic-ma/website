@@ -22,34 +22,30 @@ I also performed a competitive analysis of other crossword editors on the market
 
 ## Project links
 
-Here are links to the things I worked on.
+Here are links to the things that I worked on.
 
 ### Merge requests
 
-* [Improve print functions for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/320)
-* [Make separate files for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/319)
-* [Make phase 3 of `word_list_find_intersection()` optional`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/317)
-* [Add performance tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/314)
-* [Use string parameter in macro function](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/313)
-* [Add more tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/312)
-* [Add a macro to simplify the `test_clue_matches` calls](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/310)
-* [Improve `word_array_print()`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/309)
-* [Add macro to reduce boilerplate code in `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/307)
-* [Use better test assert macros](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/296)
-* [Refactor `clue-matches-tests.c` by using a fixture](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/295)
-* [Add `word-list-tests-utils.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/286)
-* [Improve word suggestion algorithm](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/273)
-* [Use a single suggested words list for Editor](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/256)
-* [Fix rebus intersection](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/251)
-* [Fix intersect sort](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/249)
-* [Add support for remaining divided cell types in `svg.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/227)
-* [Add MIME sniffing to downloader](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/225)
-* [Fix and refactor editor puzzle import](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/211)
+MRs related to the word suggestion algorithm:
+1. [Improve word suggestion algorithm](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/273)
+1. [Add `word-list-tests-utils.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/286)
+1. [Refactor `clue-matches-tests.c` by using a fixture](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/295)
+1. [Use better test assert macros](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/296)
+1. [Add macro to reduce boilerplate code in `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/307)
+1. [Add a macro to simplify the `test_clue_matches` calls](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/310)
+1. [Add more tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/312)
+1. [Use string parameter in macro function](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/313)
+1. [Add performance tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/314)
+1. [Make phase 3 of `word_list_find_intersection()` optional`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/317)
+1. [Improve print functions for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/320)
 
-
-
-
-
+Other MRs:
+1. [Fix and refactor editor puzzle import](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/211)
+1. [Add MIME sniffing to downloader](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/225)
+1. [Add support for remaining divided cell types in `svg.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/227)
+1. [Fix intersect sort](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/249)
+1. [Fix rebus intersection](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/251)
+1. [Use a single suggested words list for Editor](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/256)
 
 ### Design documents
 
