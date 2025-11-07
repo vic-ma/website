@@ -3,7 +3,6 @@ title      = 'Google Summer of Code final report'
 date       = '2025-11-07'
 slug       = 'gsoc-9'
 categories = ['GSoC']
-draft      = true
 +++
 
 For Google Summer of Code 2025, I worked on [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords). GNOME Crosswords is a project that consists of two apps: 
