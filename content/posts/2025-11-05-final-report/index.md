@@ -6,7 +6,11 @@ categories = ['GSoC']
 draft      = true
 +++
 
-For Google Summer of Code 2025, I worked on [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords). GNOME Crosswords consists of a crossword player called [Crosswords](https://flathub.org/en/apps/org.gnome.Crosswords) and a crossword editor called [Crossword Editor](https://flathub.org/en/apps/org.gnome.Crosswords.Editor). I worked on the crossword editor.
+For Google Summer of Code 2025, I worked on [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords). GNOME Crosswords is a project that consists of two apps: 
+* [Crosswords](https://flathub.org/en/apps/org.gnome.Crosswords), a crossword player
+* [Crossword Editor](https://flathub.org/en/apps/org.gnome.Crosswords.Editor), a crossword editor.
+
+I worked on Crossword Editor.
 
 
 
@@ -124,13 +128,13 @@ Now, suppose that the current slot is 4-Across. The basic algorithm only conside
 
 The problem is that the basic algorithm only looks at the current clue. It does not look at the intersecting clues of the current clue. Because of that, the algorithm is not able to see that 4-Down causes 4-Across to be unfillable. And so it generates incorrect word suggestions.
 
-
 ### Our word suggestion algorithm
 
 Our word suggestion algorithm was a little bit more advanced than this basic alorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
 
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
+This meant that our algorithm would sometimes generate *dead-end words*---words that, if placed, make the grid unfillable. The example grid I gave is actually the best possible case for a dead-end word: the user immediately notices that 4-Down becomes invalid, and so they can fix their grid.
 
 ### The fix
 
@@ -145,3 +149,8 @@ To fix this, I reimplemented our word suggestion algorithm as a forward-checking
 
 
 ## Competitive analysis
+
+
+<!-- ## Conclusion
+
+Thank jonathan, creator... -->
