@@ -5,7 +5,7 @@ slug       = 'gsoc-9'
 categories = ['GSoC']
 +++
 
-For Google Summer of Code 2025, I worked on [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords). GNOME Crosswords is a project that consists of two apps: 
+For [Google Summer of Code 2025](https://summerofcode.withgoogle.com/programs/2025/projects/joz3e6Jc), I worked on [GNOME Crosswords](https://gitlab.gnome.org/jrb/crosswords). GNOME Crosswords is a project that consists of two apps: 
 * [Crosswords](https://flathub.org/en/apps/org.gnome.Crosswords), a crossword player
 * [Crossword Editor](https://flathub.org/en/apps/org.gnome.Crosswords.Editor), a crossword editor.
 
