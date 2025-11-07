@@ -79,7 +79,7 @@ Other:
 
 ### Journal
 
-I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
+I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of the things that I was working on.
 
 ## Project summary
 
@@ -130,7 +130,7 @@ The problem is that the basic algorithm only looks at the current clue. It does 
 
 ### Our word suggestion algorithm
 
-Our word suggestion algorithm was a little bit more advanced than this basic alorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
+Our word suggestion algorithm was a little bit more advanced than this basic algorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
 
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
@@ -152,5 +152,5 @@ To fix this, I reimplemented our word suggestion algorithm as a forward-checking
 
 
 <!-- ## Conclusion
-
-Thank jonathan, creator... -->
+other projects
+Thank jonathan, creator...-->
