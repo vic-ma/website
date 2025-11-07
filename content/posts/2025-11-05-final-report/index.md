@@ -53,14 +53,14 @@ that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
 cell. This means that there are no valid word suggestions for either 4-Across or 4-Down.
 
-Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*---even though these do not actually fit in 4-Across, because they all turn 4-Down into a nonsensical word.
+Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, and so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*. None of these words actually fit in 4-Across, however. We know that 4-Across is unfillable, so these words must all turn 4-Down into a nonsensical word (like *ZERD* or *ZERM*).
 
-The problem is that the basic algorithm only looks at the current slot. It does not also look at 4-Down.
+The problem is that the basic algorithm only looks at the current clue. It does not look at the intersecting clues of the current clue. Because of that, the algorithm is not able to see that 4-Down causes 4-Across to be unfillable. And so it generates incorrect word suggestions.
 
 
 ### Our word suggestion algorithm
 
-The word suggestion algorithm that we had was a bit more advanced than this basic algorithm, but not by much. So it meant that it could not handle that problematic grid properly. It suggests words like *WORD* and *WORM*, even though they do not actually fit in the slot, because they would cause 4-Down to become a nonsense word.
+Our word suggestion algorithm was a little bit more advanced than this basic alorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
 
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
@@ -78,71 +78,3 @@ To fix this, I reimplemented our word suggestion algorithm as a forward-checking
 
 
 ## Competitive analysis
-
-## Project links
-
-Here are links to the things that I worked on.
-
-### Merge requests
-
-Merge requests related to the word suggestion algorithm:
-1. [Improve word suggestion algorithm](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/273)
-1. [Add `word-list-tests-utils.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/286)
-1. [Refactor `clue-matches-tests.c` by using a fixture](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/295)
-1. [Use better test assert macros](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/296)
-1. [Add macro to reduce boilerplate code in `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/307)
-1. [Add a macro to simplify the `test_clue_matches` calls](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/310)
-1. [Add more tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/312)
-1. [Use string parameter in macro function](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/313)
-1. [Add performance tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/314)
-1. [Make phase 3 of `word_list_find_intersection()` optional](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/317)
-1. [Improve print functions for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/320)
-
-Other merge requests:
-1. [Fix and refactor editor puzzle import](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/211)
-1. [Add MIME sniffing to downloader](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/225)
-1. [Add support for remaining divided cell types in `svg.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/227)
-1. [Fix intersect sort](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/249)
-1. [Fix rebus intersection](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/251)
-1. [Use a single suggested words list for Editor](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/256)
-
-### Design documents
-
-[Work in progress.](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/338)
-
-### Other documents
-
-Development:
-* **[Ideas list](https://gitlab.gnome.org/jrb/crosswords/-/wikis/ideas)**
-* **[Editor roadmap thoughts](https://gitlab.gnome.org/jrb/crosswords/-/wikis/editor-roadmap)**
-* **[Crossword Editor architecture notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/guadec-notes)**
-* **[Naming problems](https://gitlab.gnome.org/jrb/crosswords/-/wikis/naming-problems)**
-* **[Font testing](https://gitlab.gnome.org/jrb/crosswords/-/wikis/font-testing)**
-
-Word suggestion algorithm:
-* **[CSP notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/csp-notes)**
-* **[Miscellaneous papers](https://gitlab.gnome.org/jrb/crosswords/-/wikis/papers)**
-* **[Sub-alphabet idea](https://gitlab.gnome.org/jrb/crosswords/-/wikis/sub-alphabet)**
-
-Competitive analysis:
-* **[Survey of existing crossword editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-editors)**
-* **[Survey of printing feature in existing editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-printing)**
-
-Other:
-* **[Review of docs](https://gitlab.gnome.org/jrb/crosswords/-/wikis/docs-review)**
-
-### Blog posts
-
-1. [Introducing my GSoC 2025 project](https://victorma.ca/posts/gsoc-1/)
-1. [Coding begins](https://victorma.ca/posts/gsoc-2/)
-1. [A strange bug](https://victorma.ca/posts/gsoc-3/)
-1. [Bugs, bugs, and more bugs!](https://victorma.ca/posts/gsoc-4/)
-1. [My first design doc](https://victorma.ca/posts/gsoc-5/)
-1. [It's alive!](http://victorma.ca/posts/gsoc-6/)
-1. [When is an optimization not optimal?](http://victorma.ca/posts/gsoc-7/)
-1. [This is a test post](http://victorma.ca/posts/gsoc-8/)
-
-
-### Journal
-
-I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
