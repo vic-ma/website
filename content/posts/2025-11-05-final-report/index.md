@@ -20,6 +20,73 @@ As part of this project, I also researched the field of constraint satisfaction 
 I also performed a competitive analysis of other crossword editors on the market and wrote a detailed report, to help identify missing features and guide future development.
 
 
+## Project links
+
+Here are links to the things that I worked on.
+
+### Merge requests
+
+Merge requests related to the word suggestion algorithm:
+1. [Improve word suggestion algorithm](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/273)
+1. [Add `word-list-tests-utils.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/286)
+1. [Refactor `clue-matches-tests.c` by using a fixture](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/295)
+1. [Use better test assert macros](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/296)
+1. [Add macro to reduce boilerplate code in `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/307)
+1. [Add a macro to simplify the `test_clue_matches` calls](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/310)
+1. [Add more tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/312)
+1. [Use string parameter in macro function](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/313)
+1. [Add performance tests to `clue-matches-tests.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/314)
+1. [Make phase 3 of `word_list_find_intersection()` optional](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/317)
+1. [Improve print functions for `WordArray` and `WordSet`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/320)
+
+Other merge requests:
+1. [Fix and refactor editor puzzle import](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/211)
+1. [Add MIME sniffing to downloader](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/225)
+1. [Add support for remaining divided cell types in `svg.c`](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/227)
+1. [Fix intersect sort](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/249)
+1. [Fix rebus intersection](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/251)
+1. [Use a single suggested words list for Editor](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/256)
+
+### Design documents
+
+[Work in progress.](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/338)
+
+### Other documents
+
+Development:
+* **[Ideas list](https://gitlab.gnome.org/jrb/crosswords/-/wikis/ideas)**
+* **[Editor roadmap thoughts](https://gitlab.gnome.org/jrb/crosswords/-/wikis/editor-roadmap)**
+* **[Crossword Editor architecture notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/guadec-notes)**
+* **[Naming problems](https://gitlab.gnome.org/jrb/crosswords/-/wikis/naming-problems)**
+* **[Font testing](https://gitlab.gnome.org/jrb/crosswords/-/wikis/font-testing)**
+
+Word suggestion algorithm:
+* **[CSP notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/csp-notes)**
+* **[Miscellaneous papers](https://gitlab.gnome.org/jrb/crosswords/-/wikis/papers)**
+* **[Sub-alphabet idea](https://gitlab.gnome.org/jrb/crosswords/-/wikis/sub-alphabet)**
+
+Competitive analysis:
+* **[Survey of existing crossword editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-editors)**
+* **[Survey of printing feature in existing editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-printing)**
+
+Other:
+* **[Review of docs](https://gitlab.gnome.org/jrb/crosswords/-/wikis/docs-review)**
+
+### Blog posts
+
+1. [Introducing my GSoC 2025 project](https://victorma.ca/posts/gsoc-1/)
+1. [Coding begins](https://victorma.ca/posts/gsoc-2/)
+1. [A strange bug](https://victorma.ca/posts/gsoc-3/)
+1. [Bugs, bugs, and more bugs!](https://victorma.ca/posts/gsoc-4/)
+1. [My first design doc](https://victorma.ca/posts/gsoc-5/)
+1. [It's alive!](http://victorma.ca/posts/gsoc-6/)
+1. [When is an optimization not optimal?](http://victorma.ca/posts/gsoc-7/)
+1. [This is a test post](http://victorma.ca/posts/gsoc-8/)
+
+### Journal
+
+I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
+
 
 ## Word suggestion algorithm improvements
 
