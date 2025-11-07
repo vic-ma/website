@@ -29,7 +29,7 @@ In order to generate the word suggestion list, crossword editors use a *word sug
 * The size of the current slot.
 * The letters in the current slot.
 
-So for example, if the current slot is `C A _ S`, then this word suggestion algorithm would return all four-letter words that start with *CA* and end in *S*---such as *CATS* or *CABS*, but not *COTS*.
+So for example, if the current slot is `C A _ S`, then this basic word suggestion algorithm would return all four-letter words that start with *CA* and end in *S*---such as *CATS* or *CABS*, but not *COTS*.
 
 ### The problem
 
@@ -53,7 +53,9 @@ that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
 cell.
 
-Now, suppose that the current slot is 4-Across. Then, the basic word suggestion algorithm cannot detect the fact that the slot is unfillable. After all, the algorithm only looks at the current slot---it does not know about 4-Down.
+Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, so it returns all words that match the pattern `W O R _`, such as *WORD* and *WORM*. But these word suggestions are all wrong, because because they all turn 4-Down into a nonsensical word.
+
+ though they do not actually fit in this slot. They all cause 4-Down to become a nonsensical word.
 
 
 ### Our word suggestion algorithm
