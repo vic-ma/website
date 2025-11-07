@@ -10,18 +10,11 @@ For Google Summer of Code 2025, I worked on [GNOME Crosswords](https://gitlab.gn
 * [Crosswords](https://flathub.org/en/apps/org.gnome.Crosswords), a crossword player
 * [Crossword Editor](https://flathub.org/en/apps/org.gnome.Crosswords.Editor), a crossword editor.
 
-I improved GNOME Crossword Editor's word suggestion algorithm, by re-implementing it as a forward-checking algorithm. Previously, our word suggestion algorithm only considered the constraints imposed by the intersection where the cursor is. This resulted in frequent dead-end word suggestions, which led to user frustration.
-
-To fix this problem, I re-implemented our word suggestion algorithm to consider the constraints imposed by every intersection in the current slot. This significantly reduces the number of dead-end word suggestions and leads to a better user experience.
-
-As part of this project, I also researched the field of constraint satisfaction problems and wrote a report on how we can use the AC-3 algorithm to further improve our word suggestion algorithm in the future.
-
-I also performed a competitive analysis of other crossword editors on the market and wrote a detailed report, to help identify missing features and guide future development.
-
+My work focused on the editor.
 
 ## Links
 
-Here are links to everything that I worked on for my project.
+Here are links to everything that I worked.
 
 ### Merge requests
 
@@ -86,10 +79,20 @@ Other:
 
 I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of the things that I was working on.
 
+## Project summary
+
+I improved GNOME Crossword Editor's word suggestion algorithm, by re-implementing it as a forward-checking algorithm. Previously, our word suggestion algorithm only considered the constraints imposed by the intersection where the cursor is. This resulted in frequent dead-end word suggestions, which led to user frustration.
+
+To fix this problem, I re-implemented our word suggestion algorithm to consider the constraints imposed by every intersection in the current slot. This significantly reduces the number of dead-end word suggestions and leads to a better user experience.
+
+As part of this project, I also researched the field of constraint satisfaction problems and wrote a report on how we can use the AC-3 algorithm to further improve our word suggestion algorithm in the future.
+
+I also performed a competitive analysis of other crossword editors on the market and wrote a detailed report, to help identify missing features and guide future development.
+
 
 ## Word suggestion algorithm improvements
 
-The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors provides a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png)---a dynamic list of words that fit the current slot. This feature helps the user find words that fit the slots on their grid.
+The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors provide a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png)---a list of words that fit the current slot. This feature helps the user find words that fit the slots on their grid.
 
 In order to generate the word suggestion list, crossword editors use a *word suggestion algorithm*. The simplest example of a word suggestion algorithm considers two constraints:
 * The size of the current slot.
@@ -119,13 +122,13 @@ that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
 cell. This means that there are no valid word suggestions for either 4-Across or 4-Down.
 
-Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, and so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*. None of these words actually fit in 4-Across, however. We know that 4-Across is unfillable, so these words must all turn 4-Down into a nonsensical word (like *ZERD* or *ZERM*).
+Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, and so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*. But none of these word suggestions actually fit in the slot---they all cause 4-Down to become a nonsensical word.
 
-The problem is that the basic algorithm only looks at the current clue. It does not look at the intersecting clues of the current clue. Because of that, the algorithm is not able to see that 4-Down causes 4-Across to be unfillable. And so it generates incorrect word suggestions.
+The problem is that the basic algorithm only looks at the current clue, 4-Across. It does not also look at 4-Down. Because of that, the algorithm is unable to see that 4-Down causes 4-Across to be unfillable. And so, it generates incorrect word suggestions.
 
 ### Our word suggestion algorithm
 
-Our word suggestion algorithm was a little bit more advanced than this basic algorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
+Our word suggestion algorithm was a bit more advanced than this basic algorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
 
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
