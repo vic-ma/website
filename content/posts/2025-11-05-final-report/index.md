@@ -21,10 +21,6 @@ I also performed a competitive analysis of other crossword editors on the market
 
 
 
-### Journal
-
-I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
-
 ## Word suggestion algorithm improvements
 
 The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors provides a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png)---a dynamic list of words that fit the current slot. This feature helps the user find words that fit the slots on their grid.
@@ -143,3 +139,8 @@ Other:
 1. [It's alive!](http://victorma.ca/posts/gsoc-6/)
 1. [When is an optimization not optimal?](http://victorma.ca/posts/gsoc-7/)
 1. [This is a test post](http://victorma.ca/posts/gsoc-8/)
+
+
+### Journal
+
+I kept a [daily journal](https://pad.gnome.org/s/qszU26K2b) of what I was working on.
