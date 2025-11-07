@@ -152,9 +152,11 @@ To fix this problem, I re-implemented our word suggestion algorithm to account f
 
 Our new algorithm doesn't eliminate dead-end words entirely. After all, it only checks the intersecting slots of the current slot---it does not also check the intersecting slots of the intersecting slots, etc.
 
-However, the constraints imposed by a slot onto the current slot become weaker, the more intersections-removed it is. Consider: in order for a slot that's two intersections away from the current slot to constrain the current slot, it must first constrain the slot that intersects both of them. And the slot that's two intersections away must constrain that mutual slot enough for the mutual slot to then constrain the current slot.
+However, the constraints imposed by a slot onto the current slot become weaker, the more intersections-removed it is. Consider: in order for a slot that's two intersections away from the current slot to constrain the current slot, it must first constrain a mutual slot (a slot that intersects both of them) enough for that mutual slot to then constrain the current slot.
 
-And so, although my changes do not eliminate dead-end words entirely, they do significantly reduce their prevalence, making for a much better user experience.
+Compare that to a slot that is only one intersection away from the current slot. All it has to do is be constrained enough that it limits what letters the intersecting cell can be.
+
+And so, although my changes do not eliminate dead-end words entirely, they do significantly reduce their prevalence, resulting in a much better user experience.
 
 ## Constraint satisfaction problems research
 
