@@ -132,13 +132,17 @@ Our word suggestion algorithm was a bit more advanced than this basic algorithm.
 * The constraints imposed by the current slot.
 * The constraints imposed by the intersecting slot where the cursor is.
 
-This meant that our algorithm could actually handle the problematic grid properly if the cursor was on the bottom-right cell. But not if the cursor was on any other cell:
+This means that our algorithm could actually handle the problematic grid properly if the cursor is on the bottom-right cell. But not if the cursor is on any other cell of 4-Across:
 
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
 ### Consequences
 
+All this means that our word suggestion algorithm was prone to generating *dead-end words*---words that seem to fit a slot, but that actually lead to an unfillable grid.
 
+In the problematic grid example I gave, this unfillability is immediately obvious. The user fills 4-Across with a word like *WORM*, and they instantly see that this turns 4-Down into *ZERM*, a nonsense word. That makes this grid not so bad.
+
+The worst cases are the insidious ones, where the fact that a word suggestion leads to an unfillable grid is not obvious at first. This leads to a ton of wasted time and frustration for the user.
 
 ### The fix
 
