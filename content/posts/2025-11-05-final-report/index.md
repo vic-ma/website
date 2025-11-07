@@ -122,23 +122,16 @@ that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
 cell. This means that there are no valid word suggestions for either 4-Across or 4-Down.
 
-Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, and so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*. But none of these word suggestions actually fit in the slot---they all cause 4-Down to become a nonsensical word.
+Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, and so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*. But none of these word suggestions actually fit in the slot---they all cause 4-Down to become some nonsensical word.
 
-The problem is that the basic algorithm only looks at the current clue, 4-Across. It does not also look at 4-Down. Because of that, the algorithm is unable to see that 4-Down causes 4-Across to be unfillable. And so, it generates incorrect word suggestions.
-
-### Our word suggestion algorithm
-
-Our word suggestion algorithm was a bit more advanced than this basic algorithm---but not by much. So, our algorithm also could not handle the problematic grid properly:
+The problem is that the basic algorithm only looks at the current clue, 4-Across. It does not also look at other slots, like 4-Down. Because of that, the algorithm doesn't realize that 4-Down causes 4-Across to be unfillable. And so, the algorithm generates incorrect word suggestions.
 
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
-This meant that our algorithm would sometimes generate *dead-end words*---words that, if placed, make the grid unfillable. The example grid I gave is actually the best possible case for a dead-end word: the user immediately notices that 4-Down becomes invalid, and so they can fix their grid.
-
-### The fix
-
-To fix this, I reimplemented our word suggestion algorithm as a forward-checking algorithm. Now, our algorithm considers the constraints imposed by the current slot as well as every intersecting slot.
-
 ![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
+
+
+
 
 
 ## Constraint satisfaction problems research
