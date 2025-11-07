@@ -9,11 +9,9 @@ For [Google Summer of Code 2025](https://summerofcode.withgoogle.com/programs/20
 * [Crosswords](https://flathub.org/en/apps/org.gnome.Crosswords), a crossword player
 * [Crossword Editor](https://flathub.org/en/apps/org.gnome.Crosswords.Editor), a crossword editor.
 
-My work focused on the editor.
-
 ## Links
 
-Here are links to everything that I worked.
+Here are links to everything that I worked on.
 
 ### Merge requests
 
