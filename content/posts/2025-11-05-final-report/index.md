@@ -146,8 +146,15 @@ The worst cases are the insidious ones, where the fact that a word suggestion le
 
 ### The fix
 
+To fix this problem, I re-implemented our word suggestion algorithm to account for the constraints imposed by *all* the intersecting slots. Now, with the problematic grid example, our word suggestion algorithm correctly returns an empty list:
+
 ![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
 
+Our new algorithm doesn't eliminate dead-end words entirely. After all, the algorithm only checks the intersecting slots---it does not check the intersecting slots of the intersecting slots, and so on.
+
+However, the constraints imposed by a slot onto the current slot become weaker, the further away it is. Consider: for a slot that's two intersections away from the current slot to constrain the current slot, it must first constrain the slot one intersection away enough for it to then constrain the current slot.
+
+And so, although my changes do not eliminate dead-end words entirely, they do significantly reduce their prevalence, making for a much better user experience.
 
 ## Constraint satisfaction problems research
 
