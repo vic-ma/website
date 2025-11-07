@@ -126,12 +126,23 @@ Now, suppose that the current slot is 4-Across. The basic algorithm only conside
 
 The problem is that the basic algorithm only looks at the current clue, 4-Across. It does not also look at other slots, like 4-Down. Because of that, the algorithm doesn't realize that 4-Down causes 4-Across to be unfillable. And so, the algorithm generates incorrect word suggestions.
 
+### Our word suggestion algorithm
+
+Our word suggestion algorithm was a bit more advanced than this basic algorithm. Our algorithm considered two constraints:
+* The constraints imposed by the current slot.
+* The constraints imposed by the intersecting slot where the cursor is.
+
+This meant that our algorithm could actually handle the problematic grid properly if the cursor was on the bottom-right cell. But not if the cursor was on any other cell:
+
 ![Broken behaviour](https://victorma.ca/posts/gsoc-6/broken.png)
 
+### Consequences
+
+
+
+### The fix
+
 ![Fixed behaviour](https://victorma.ca/posts/gsoc-6/fixed.png)
-
-
-
 
 
 ## Constraint satisfaction problems research
