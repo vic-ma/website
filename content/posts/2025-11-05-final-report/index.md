@@ -161,4 +161,4 @@ And so, although my changes do not eliminate dead-end words entirely, they do si
 
 ## The end
 
-This concludes my Google Summer of Code 2025 project with the GNOME Foundation! I give my thanks to [Jonathan Blandford](https://gitlab.gnome.org/jrb/) for his invaluable mentorship and clear communication throughout the last six months. And I thank the GNOME Foundation for its participation in GSoC and its commitment to open source.
+This concludes my Google Summer of Code 2025 project! I give my thanks to [Jonathan Blandford](https://gitlab.gnome.org/jrb/) for his invaluable mentorship and clear communication throughout the past six months. And I thank the GNOME Foundation for its participation in GSoC and commitment to open source.
