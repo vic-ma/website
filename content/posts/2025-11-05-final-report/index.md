@@ -1,6 +1,6 @@
 +++
 title      = 'Google Summer of Code final report'
-date       = '2000-11-06'
+date       = '2025-11-07'
 slug       = 'gsoc-9'
 categories = ['GSoC']
 draft      = true
@@ -51,11 +51,11 @@ the bottom-right cell to the letter *O*.
 4-Across starts with *WOR*. We know that the bottom-right cell must be *O*, so
 that means that 4-Across must be *WORO*. But *WORO* is not a word. So, 4-Down
 and 4-Across are both unfillable, because no letter fits in the bottom-right
-cell.
+cell. This means that there are no valid word suggestions for either 4-Across or 4-Down.
 
-Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, so it returns all words that match the pattern `W O R _`, such as *WORD* and *WORM*. But these word suggestions are all wrong, because because they all turn 4-Down into a nonsensical word.
+Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*---even though these do not actually fit in 4-Across, because they all turn 4-Down into a nonsensical word.
 
- though they do not actually fit in this slot. They all cause 4-Down to become a nonsensical word.
+The problem is that the basic algorithm only looks at the current slot. It does not also look at 4-Down.
 
 
 ### Our word suggestion algorithm
