@@ -89,7 +89,7 @@ I also performed a competitive analysis of other crossword editors on the market
 
 ## Word suggestion algorithm improvements
 
-The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors provide a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png)---a list of words that fit the current slot. This feature helps the user find words that fit the slots on their grid.
+The goal of any crossword editor software is to make it as easy as possible to create a good crossword puzzle. To that end, all crossword editors have a feature called a [*word suggestion list*](https://gitlab.gnome.org/jrb/crosswords/-/raw/master/data/images/edit-grid.png). This is a dynamic list of words that fit the current slot. It helps the user find words that fit the slots on their grid.
 
 In order to generate the word suggestion list, crossword editors use a *word suggestion algorithm*. The simplest example of a word suggestion algorithm considers two constraints:
 * The size of the current slot.
@@ -121,7 +121,7 @@ cell. This means that there are no valid word suggestions for either 4-Across or
 
 Now, suppose that the current slot is 4-Across. The basic algorithm only considers the constraints imposed by the current slot, and so it returns all words that match the pattern `W O R _`---such as *WORD* and *WORM*. But none of these word suggestions actually fit in the slot---they all cause 4-Down to become some nonsensical word.
 
-The problem is that the basic algorithm only looks at the current clue, 4-Across. It does not also look at other slots, like 4-Down. Because of that, the algorithm doesn't realize that 4-Down causes 4-Across to be unfillable. And so, the algorithm generates incorrect word suggestions.
+The problem is that the basic algorithm only looks at the current slot, 4-Across. It does not also look at other slots, like 4-Down. Because of that, the algorithm doesn't realize that 4-Down causes 4-Across to be unfillable. And so, the algorithm generates incorrect word suggestions.
 
 ### Our word suggestion algorithm
 
@@ -141,7 +141,7 @@ In the problematic grid example I gave, this unfillability is immediately obviou
 
 The worst cases are the insidious ones, where the fact that a word suggestion leads to an unfillable grid is not obvious at first. This leads to a ton of wasted time and frustration for the user.
 
-### The fix
+### My solution
 
 To fix this problem, I re-implemented our word suggestion algorithm to account for the constraints imposed by *all* the intersecting slots. Now, our word suggestion algorithm correctly handles the problematic grid example:
 
