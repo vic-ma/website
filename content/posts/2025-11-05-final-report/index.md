@@ -38,7 +38,13 @@ Other merge requests:
 
 ### Design documents
 
-[Work in progress.](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/338)
+* [Word suggestion algorithm](https://jrb.pages.gitlab.gnome.org/crosswords/devel-docs/designs/crosswords-editor/word-suggestion.html)
+* [Intersection-based word suggestion algorithm
+](https://jrb.pages.gitlab.gnome.org/crosswords/devel-docs/designs/crosswords-editor/intersection-algorithm.html)
+* [Forward-checking word suggestion algorithm
+](https://jrb.pages.gitlab.gnome.org/crosswords/devel-docs/designs/crosswords-editor/forward-checking.html)
+* [AC-3-based word suggestion algorithm](https://jrb.pages.gitlab.gnome.org/crosswords/devel-docs/designs/crosswords-editor/ac3.html)
+* [Grid helpers](https://jrb.pages.gitlab.gnome.org/crosswords/devel-docs/designs/crosswords-editor/grid-helpers.html)
 
 ### Other documents
 
