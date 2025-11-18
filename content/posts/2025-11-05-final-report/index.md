@@ -49,23 +49,23 @@ Other merge requests:
 ### Other documents
 
 Development:
-* **[Ideas list](https://gitlab.gnome.org/jrb/crosswords/-/wikis/ideas)**
-* **[Editor roadmap thoughts](https://gitlab.gnome.org/jrb/crosswords/-/wikis/editor-roadmap)**
-* **[Crossword Editor architecture notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/guadec-notes)**
-* **[Naming problems](https://gitlab.gnome.org/jrb/crosswords/-/wikis/naming-problems)**
-* **[Font testing](https://gitlab.gnome.org/jrb/crosswords/-/wikis/font-testing)**
+* [Ideas list](https://gitlab.gnome.org/jrb/crosswords/-/wikis/ideas)
+* [Editor roadmap thoughts](https://gitlab.gnome.org/jrb/crosswords/-/wikis/editor-roadmap)
+* [Crossword Editor architecture notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/guadec-notes)
+* [Naming problems](https://gitlab.gnome.org/jrb/crosswords/-/wikis/naming-problems)
+* [Font testing](https://gitlab.gnome.org/jrb/crosswords/-/wikis/font-testing)
 
 Word suggestion algorithm:
-* **[CSP notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/csp-notes)**
-* **[Miscellaneous papers](https://gitlab.gnome.org/jrb/crosswords/-/wikis/papers)**
-* **[Sub-alphabet idea](https://gitlab.gnome.org/jrb/crosswords/-/wikis/sub-alphabet)**
+* [CSP notes](https://gitlab.gnome.org/jrb/crosswords/-/wikis/csp-notes)
+* [Miscellaneous papers](https://gitlab.gnome.org/jrb/crosswords/-/wikis/papers)
+* [Sub-alphabet idea](https://gitlab.gnome.org/jrb/crosswords/-/wikis/sub-alphabet)
 
 Competitive analysis:
-* **[Survey of existing crossword editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-editors)**
-* **[Survey of printing feature in existing editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-printing)**
+* [Survey of existing crossword editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-editors)
+* [Survey of printing feature in existing editors](https://gitlab.gnome.org/jrb/crosswords/-/wikis/survey-printing)
 
 Other:
-* **[Review of docs](https://gitlab.gnome.org/jrb/crosswords/-/wikis/docs-review)**
+* [Review of docs](https://gitlab.gnome.org/jrb/crosswords/-/wikis/docs-review)
 
 ### Blog posts
 
