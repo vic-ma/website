@@ -36,6 +36,10 @@ Other merge requests:
 1. [Fix rebus intersection](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/251)
 1. [Use a single suggested words list for Editor](https://gitlab.gnome.org/jrb/crosswords/-/merge_requests/256)
 
+### Issues submitted
+
+[Issues I submitted on GitLab.](https://gitlab.gnome.org/jrb/crosswords/-/issues?sort=created_date&state=all&author_username=vic-ma&first_page_size=100)
+
 ### Design documents
 
 * [Word suggestion algorithm](https://jrb.pages.gitlab.gnome.org/crosswords/devel-docs/designs/crosswords-editor/word-suggestion.html)
